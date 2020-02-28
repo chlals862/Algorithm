@@ -1,4 +1,4 @@
-package javaCrystallization.ch3;
+package javaCrystallization.ch3_연산자;
 /*
  * 비트연산의 결과를 2진수로 출력하기
  * 16진수 : 0x 
@@ -13,7 +13,7 @@ package javaCrystallization.ch3;
 
 
 
-public class OperatorEx28 {
+public class OperatorEx28_비트연산자 {
 	public static void main(String[] args){
 		int x = 0xAB, y = 0xF;
 		//toBinaryString -> 비트연산의 결과를 2진수로 출력하기 위한 메서드
