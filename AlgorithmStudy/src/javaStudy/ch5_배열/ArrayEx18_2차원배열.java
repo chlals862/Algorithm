@@ -16,8 +16,8 @@ public class ArrayEx18_2차원배열 {
 						};
 		int sum = 0; 
 		
-		for(int i=0; i<score.length;i++) { //열
-			for(int j=0; j<score[i].length;j++) { //행
+		for(int i=0; i<score.length;i++) { //행
+			for(int j=0; j<score[i].length;j++) { //열
 				System.out.printf("score[%d][%d]=%d%n", i, j, score[i][j]);
 			}
 		}

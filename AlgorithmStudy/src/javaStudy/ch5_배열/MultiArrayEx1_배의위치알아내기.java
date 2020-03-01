@@ -8,7 +8,6 @@ public class MultiArrayEx1_배의위치알아내기 {
 	 * 번갈아가며 좌표를 불러서 상대방의 배의 위치를 알아내는 게임을 간단히 한 예쩨
 	 * 2차원 배열 char배열 board는 입력한 좌표를 표시하기 위한 것
 	 * 2차원 배열 byte배열 shipBoard에는 상대방의 배의 위치를 저장
-	 * 
 	 * 0은 바다 
 	 * 1은 배가 있음
 	 * */
@@ -20,7 +19,7 @@ public class MultiArrayEx1_배의위치알아내기 {
 		char[][] board = new char[SIZE][SIZE]; //배열 board는 좌표를 쉽게 입력받기 위한 행번호와 열번호가 필요함
 		byte[][] shipBoard = {                 //그래서 배열 board가 배열 shipBoard보다 행과 열의 길이가 1씩 큰 것임
 			//   1 2 3 4 5 6 7 8 9
-				{0,0,0,0,0,0,0,0,0}, //1 
+				{0,0,0,0,0,0,0,0,0}, //1
 				{1,1,1,1,0,0,1,0,0}, //2
 				{0,0,0,0,0,0,1,0,0}, //3
 				{0,0,0,0,0,0,1,0,0}, //4
@@ -51,20 +50,21 @@ public class MultiArrayEx1_배의위치알아내기 {
 				
 				if(input.length()==2) { //두 글자를 입력한 경우
 					x = input.charAt(0) - '0'; //문자를 숫자로 변환
-					y = input.charAt(1) - '0';
+					y = input.charAt(1) - '0'; //입력을 2개를 해야하니 charAt(0)과 charAt(1)을 숫자로 변환
 					
 					if( x==0 && y==0)//x와 y가 모두 0인 경우 종료
 						break;
 				}//if of end
 				
-				if(input.length() !=2 || x<=0 || x>=SIZE || y<=0 || y>=SIZE) {
+				if(input.length() !=2 || x<=0 || x>=SIZE || y<=0 || y>=SIZE) { //입력받은 길이가 2가 아니거나 x가 0보다 작거나 같을떄, 입력한 행의 x가 SIZE보다 크거나 같을때(10) ...y도 마찬가지
 					System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-					continue;
+					continue; //다시 위의 반복문인 while문으로 되돌아감
 				}
 				
 				// shipBoard[x-1][y-1]의 값이 1이면(입력받은 좌표 x,y에 저장된 값이 1이면), 'O'을 board[x][y]에 저장
 				// x-1,y-1을 해주는 이유는 shipBoard와 board가 가로,세로 1씩 차이나서임
 				board[x][y] = shipBoard[x-1][y-1] == 1 ? 'O' : 'X'; //삼항 연산식  조건부가 true일때 'O' , false이면 'X'
+				//index는 0,0부터 시작하므로 x와 y에 -1씩 해줘야함
 				
 				//배열 board의 내용을 화면에 출력
 				for(int i=0;i<SIZE;i++)
