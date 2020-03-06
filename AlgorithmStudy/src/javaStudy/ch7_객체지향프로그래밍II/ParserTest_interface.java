@@ -1,5 +1,5 @@
 package javaStudy.ch7_객체지향프로그래밍II;
-/*mjmimjmimimijmimimimimimimimimimimimimimijmijmijmijmijk,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk*/
+
 interface Parseable {
 	//구문 분석작업을 수행
 	public abstract void parse(String fileName);
