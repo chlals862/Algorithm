@@ -1,4 +1,4 @@
-package javaStudy;
+package SW_EXPERT_ACADEMY;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -90,6 +90,22 @@ public class StringClass의생성자와메서드 {
 		System.out.println("idx6 = " + idx6);//뒤에있는
 		System.out.println("idx7 = " + idx7);//앞에있는
 		
+		//int length() -> 문자열길이
+		String s14 = "Hello World!!";
+		System.out.println(s14.length());
+		
+		//String replace(char old, char nw) -> 문자열 중의 문자(old)를 새로운 문자 (nw)로 바꾼 문자열을 반환
+		String s15 = "Hello";
+		String s16 = s15.replace('H', 'C');
+		System.out.println(s16);
+		
+		//String replaceAll(String regex, String replacement) -> 
+		//문자열 중에서 지정된 문자열과 일치하는 것을 새로운 문자열로 모두 변경
+		String ab = "AABBAABB";
+		String r = ab.replace("BB", "bb");
+		System.out.println(r);
+		
+		
 		
 		
 		
