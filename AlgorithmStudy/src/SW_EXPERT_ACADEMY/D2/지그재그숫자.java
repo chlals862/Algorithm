@@ -27,7 +27,7 @@ public class 지그재그숫자 {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 
-		for (int i = 1; i <= N; i++) {
+		for (int i=1;i<=N;i++) {
 			int num = sc.nextInt();
 			System.out.println("#"+i+ " "+output(num));
 		}
@@ -36,9 +36,9 @@ public class 지그재그숫자 {
 	private static int output(int num) {
 		// 홀수는 더하고 짝수는 빼니까 나머지 값으로 구분
 		int sum = 0;
-		for (int i = 1; i <= num; i++) {
+		for (int i=1;i<=num;i++) {
 
-			if (i % 2 == 0) {
+			if (i%2==0) {
 				sum -= i;
 			} else {
 				sum += i;
