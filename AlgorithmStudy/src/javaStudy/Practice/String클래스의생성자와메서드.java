@@ -1,6 +1,6 @@
 package javaStudy.Practice;
 
-public class StringClass의생성자와메서드 {
+public class String클래스의생성자와메서드 {
 
 	public static void main(String[] args) {
 		//String(String s) -> 주어진 문자열(s1)을 갖는 String 인스턴스를 생성
