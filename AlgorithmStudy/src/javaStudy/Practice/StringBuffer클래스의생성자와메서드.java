@@ -81,5 +81,24 @@ public class StringBuffer클래스의생성자와메서드 {
 		
 		//void setCharAt(int index, char ch)
 		//지정된 위치의 문자를 주어진 문자(ch)로 바꿈
+		StringBuffer sb15 = new StringBuffer("0123456");
+		sb15.setCharAt(5, 'o'); //->index5번자리(5)대신 'o'삽입
+		System.out.println(sb15);
+		
+		//void setLength(int newLength)
+		//지정된 길이로 문자열의 길이를 변경함. 길이를 늘리는 경우에 나머지 빈 공간을 널문자 '\u0000'로 채움
+		StringBuffer sb16 = new StringBuffer("0123456789");
+		sb16.setLength(5);
+		System.out.println(sb16); // -> 01234 
+		StringBuffer sb17 = new StringBuffer("0123456789");
+		sb17.setLength(8);
+		String str = sb17.toString().trim();
+		System.out.println(str);
+		
+		//String toString() -> StringBuffer인스턴스의 문자열을 String으로 반환
+		StringBuffer sb18 = new StringBuffer("ABCDEFG");
+		String str2 = sb18.toString();
+		System.out.println(str2);
+		
 	}
 }
