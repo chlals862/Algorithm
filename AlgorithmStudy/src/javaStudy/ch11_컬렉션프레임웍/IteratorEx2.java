@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class IteratorEx2 {
-
+	/*
+	 * Iterator -> 컬렉션에 저장된 요소를 접근하는데 사용되는 인터페이스
+	 * */
 	public static void main(String[] args) {
 		ArrayList original = new ArrayList(10);
 		ArrayList copy1 = new ArrayList(10);
