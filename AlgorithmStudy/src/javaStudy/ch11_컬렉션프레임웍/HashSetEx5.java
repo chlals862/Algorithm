@@ -33,7 +33,7 @@ public class HashSetEx5 {
 		
 		while(it.hasNext()) {
 			Object tmp = it.next(); 
-			if(setA.contains(tmp)) //setB에 tmp가 없으면
+			if(setA.contains(tmp)) //setA에 tmp가 없으면
 				setGyo.add(tmp);
 		}///end of while
 		
