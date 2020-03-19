@@ -12,12 +12,12 @@ public class Bingo {
 	
 	public static void main(String[] args) {
 		
-		Set set = new HashSet(); //-> HashSet은 저장된 순서를 보장하지 않고 자체적인 저장방식에 따라 순서가 결정되기 떄문에
+		//Set set = new HashSet(); //-> HashSet은 저장된 순서를 보장하지 않고 자체적인 저장방식에 따라 순서가 결정되기 떄문에
 		//이 경우에는 HashSet보다는 LinkedHashSet이 더 나은 선택
-	  //Set set = new LinkedHashSet();
+		Set set = new LinkedHashSet();
 		int[][] board = new int[5][5];
 		
-		for(int i=0;set.size()<25;i++) {
+		for(int i=0;set.size()<25;i++) { 
 			set.add((int)(Math.random()*50)+1+"");
 		}
 		
