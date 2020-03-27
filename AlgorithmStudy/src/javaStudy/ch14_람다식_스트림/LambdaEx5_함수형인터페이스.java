@@ -50,4 +50,4 @@ public class LambdaEx5_함수형인터페이스 {
 		}
 	}
 
-}//classs
+}//class
