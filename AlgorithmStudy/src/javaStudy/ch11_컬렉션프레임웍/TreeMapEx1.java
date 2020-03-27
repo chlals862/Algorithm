@@ -17,9 +17,10 @@ public class TreeMapEx1 {
 		TreeMap map = new TreeMap();
 		
 		for(int i=0; i<data.length;i++) {
+			//map.containsKey() -> HashMap에 지정된 키가 포함되어 있는지 알려줌 (포함되면 true)
 			if(map.containsKey(data[i])) {
 				Integer value = (Integer)map.get(data[i]);
-				map.put(data[i], new Integer(value.intValue() + 1));
+				map.put(data[i], new Integer(value.intValue()+1));//카운트+1
 			} else {
 				map.put(data[i], new Integer(1));
 			}
