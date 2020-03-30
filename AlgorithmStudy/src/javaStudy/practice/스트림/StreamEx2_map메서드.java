@@ -33,6 +33,5 @@ public class StreamEx2_map메서드 {
 		.distinct() //중복제거
 		.forEach(System.out::print); //JAVABAKTXT
 		
-		
 	}
 }
