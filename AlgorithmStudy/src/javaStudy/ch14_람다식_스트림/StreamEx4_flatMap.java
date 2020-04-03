@@ -13,13 +13,14 @@ public class StreamEx4_flatMap {
 	 * 
 	 * map(Arrays::stream) = Stream<String[]> -> Stream<Stream<String>>
 	 * flatMap(Arrays::stream) = Stream<String[]> -> Stream<String>
+	 * p832
 	 * */
 
 	public static void main(String[] args) {
 		Stream<String[]> strArrStrm = Stream.of(new String[] {"abc","def","jkl"},
 												new String[] {"ABC","DEF","JKL"});
 		
-		//Stream<Stream<String>> strStrmStrm = strArrStrm.map(Arrays::stream);  -> map()사용
+		//Stream<Stream<String>> strStrmStrm = strArrStrm.map(Arrays::stream);  -> map()사용 
 		  Stream<String> strStrm = strArrStrm.flatMap(Arrays::stream);
 		  
 		  strStrm.map(String::toLowerCase).distinct().sorted().forEach(System.out::println); //map output
