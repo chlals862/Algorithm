@@ -39,7 +39,6 @@ public class 단어공부 {
 				}
 		}
 		//step3. 가장 큰 빈도수를 가진 알파벳 찾기
-			
 			//빈도수가 2인게 여러개 일수도 있으니 예외처리를 위해 max변수 하나 잡음
 			int max = 0;
 			int idx = 0;
@@ -49,7 +48,6 @@ public class 단어공부 {
 					max++;
 					idx= i;
 				}
-				
 			}
 			if(max > 1) {
 				System.out.println("?");
@@ -58,5 +56,4 @@ public class 단어공부 {
 			//알파벳을 나타내기 위해
 			System.out.println((char)(idx+'A'));
 	}
-	
 }
