@@ -1,9 +1,4 @@
 package baekjoon.브루트포스;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 /*
@@ -64,13 +59,11 @@ public class 덩치 {
 				//i의 몸무게가 j보다 작고 i의 키가 j보다 작을떄 ranking++
 				if(people[i][0] < people[j][0] && people[i][1] < people[j][1])
 					ranking++;
-				
-				
 			}//for j
 			rank[i] = ranking +1;
 		}//for i
 		for (int i = 0; i < N; i++) {
-			System.out.print(rank[i] + "");
+			System.out.print(rank[i] + " ");
 		}
 	}
 }
