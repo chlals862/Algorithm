@@ -1,5 +1,7 @@
 package baekjoon.브루트포스;
 
+import java.util.Scanner;
+
 /*왕비를 피해 일곱 난쟁이들과 함께 평화롭게 생활하고 있던 백설공주에게 위기가 찾아왔다. 
 일과를 마치고 돌아온 난쟁이가 일곱 명이 아닌 아홉 명이었던 것이다.
 아홉 명의 난쟁이는 모두 자신이 "백설 공주와 일곱 난쟁이"의 주인공이라고 주장했다. 
@@ -13,6 +15,25 @@ package baekjoon.브루트포스;
 	일곱 난쟁이의 키를 오름차순으로 출력한다. 일곱 난쟁이를 찾을 수 없는 경우는 없다.
 -----------------------------------------------------------------------
 	*/
-public class 일곱난쟁이 {
-
+public class 일곱난쟁이_보류 {
+	//난쟁이들
+	static int[] nan = new int[9];
+	static int height = 0;
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		//입력
+		for(int i=0;i<9;i++) {
+			int input = sc.nextInt();
+			nan[i] = input;
+		}
+		//로직
+		//배열에 들어간 난쟁이들의 키를 합산하여 100만들기
+		
+		
+		//출력
+		
+	}
 }
