@@ -1,4 +1,4 @@
-package CodeUp.기초100제;
+package CodeUp;
 
 import java.util.Scanner;
 
