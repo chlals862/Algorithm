@@ -18,6 +18,7 @@ public class 단어정렬 {
 		//Scanner sc = new Scanner(System.in);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		//int input = sc.nextInt();
+		//문자열을 숫자로 반환
 		int s = Integer.parseInt(br.readLine());
 		/*
 		 * ★★★★★compareTo★★★★★ 2개의 두 문자열을 비교하고 int형 값을 반환 A.compareTo(B) A == B -> 0
@@ -37,7 +38,7 @@ public class 단어정렬 {
 			String in = br.readLine();
 			
 			// contains() -> 대상 문자열에 특정 문자열이 포함되어 있는지 확인 -> 대소문자 구분
-			// list에 입력한 s가 포함되지 않으면 list에 s를넣음
+			// list에 입력한 s가 포함되지 않으면 list에 s를넣음 -> 중복제거
 			if (!list.contains(in)) {
 				list.add(in);
 			}
@@ -47,21 +48,18 @@ public class 단어정렬 {
 		Comparator<String> compare = new Comparator<String>() {
 			public int compare(String a, String b) {
 				if (a.length() > b.length()) {
-					//System.out.println("a = " + a);
-					//System.out.println("b = " + b);
 					return 1;
 
 				} else if (a.length() == b.length()) {
-					//System.out.println("a = " + a);
-					//System.out.println("b = " + b);
 					return a.compareTo(b);
 				}
 				return -1;
 			}
 		};//compare
-		for (int i = 0; i < list.size(); i++) {
-			//System.out.print("정렬 전 = " + list.get(i).length());
-		}
+		/*
+		 * for (int i = 0; i < list.size(); i++) { System.out.print("정렬 전 = " +
+		 * list.get(i).length()); }
+		 */
 		Collections.sort(list, compare);
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
