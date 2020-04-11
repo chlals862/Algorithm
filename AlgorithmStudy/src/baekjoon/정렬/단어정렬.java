@@ -48,18 +48,21 @@ public class 단어정렬 {
 		Comparator<String> compare = new Comparator<String>() {
 			public int compare(String a, String b) {
 				if (a.length() > b.length()) {
+					//System.out.println("a = " + a);
+					//System.out.println("b = " + b);
 					return 1;
 
 				} else if (a.length() == b.length()) {
+					//System.out.println("a = " + a);
+					//System.out.println("b = " + b);
 					return a.compareTo(b);
 				}
 				return -1;
 			}
 		};//compare
-		/*
-		 * for (int i = 0; i < list.size(); i++) { System.out.print("정렬 전 = " +
-		 * list.get(i).length()); }
-		 */
+		for (int i = 0; i < list.size(); i++) {
+			//System.out.print("정렬 전 = " + list.get(i).length());
+		}
 		Collections.sort(list, compare);
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
