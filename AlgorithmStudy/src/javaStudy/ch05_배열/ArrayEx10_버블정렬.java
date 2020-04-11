@@ -29,6 +29,7 @@ public class ArrayEx10_버블정렬 {
 			* 매 반복마다 ★★비교횟수가 1씩 줄어들기 때문에 바깥쪽 for문의 제어변수 i를 배줌
 			*/
 				if(numArr[j] > numArr[j+1]) { //옆의 값이 작으면 서로 바꿈★★   j+1은 인덱스 값
+					
 					int temp = numArr[j]; //임시변수 temp에 numArr[j]저장
 					numArr[j] = numArr[j+1]; //우측의 값이 작았으므로 numArr[j+1]의 값을 numArr[j]에 저장
 					numArr[j+1] = temp;
