@@ -1,7 +1,11 @@
 package baekjoon.정렬;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;
 
 /*상근이는 수학시간에 딴 짓을 하다가 선생님께 걸렸다. 
 선생님은 상근이에게 이번 주말동안 반성하라며 엄청난 숙제를 내주었다.
@@ -15,15 +19,16 @@ import java.util.Scanner;
 
 public class 수학숙제_ING {
 	static String[] line;
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		int input = sc.nextInt();
-		
-		for(int i=0;i<input;i++) {
-			
+		int s = Integer.parseInt(br.readLine());
+		//String s = sc.nextLine();
+		List<String> list = new ArrayList<String>(s);
+		for(int i=0;i<s;i++) {
+			String input = br.readLine();
 		}
 	}
 }
