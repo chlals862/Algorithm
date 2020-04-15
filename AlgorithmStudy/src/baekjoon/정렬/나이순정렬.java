@@ -29,8 +29,7 @@ public class 나이순정렬 {
 			this.joinNo = joinNo;
 			this.age = age;
 			this.name = name;
-		}
-		
+		}		
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -48,11 +47,12 @@ public class 나이순정렬 {
 	}
 	private static void sorting() { //정렬
 		//step1. 회원 나이가 증가하는 순
-		Collections.sort(persons,new Comparator<Person>() {
+		//step2. 나이가 같으면 먼저 온 사람 기준
+		
+		Collections.sort(persons, new Comparator<Person>() {
 				@Override
 				public int compare(Person p1, Person p2) {
 					if(p1.age == p2.age) return Integer.compare(p1.joinNo, p2.joinNo);
-					
 					else return Integer.compare(p1.age, p2.age);
 				}
 		});
@@ -61,16 +61,12 @@ public class 나이순정렬 {
 	//int로 입력받은 수 만큼 person(arrayList)에 저장
 	private static void inputData() throws NumberFormatException, IOException {
 		N = Integer.parseInt(br.readLine());
+		
 		for(int i=0;i<N;i++) {
 			st = new StringTokenizer(br.readLine());
 			int age = Integer.parseInt(st.nextToken());
 			String name = st.nextToken();
 			persons.add(new Person(i, age, name));
-		}
-		
+		}	
 	}
-	
-	
-	
-	
 }

@@ -1,0 +1,25 @@
+package baekjoon.문자열처리;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class 단어의개수 {
+	static String input;
+	static StringTokenizer st;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+	public static void main(String[] args) throws IOException {
+		
+		setInput();
+	}
+
+	private static void setInput() throws IOException {
+		st = new StringTokenizer(br.readLine());
+		System.out.println(st.countTokens());
+	}
+}
