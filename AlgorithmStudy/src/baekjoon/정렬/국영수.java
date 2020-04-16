@@ -75,7 +75,7 @@ public class 국영수 {
 					//국어 점수가 감소하는 순서
 					return -Integer.compare(s1.kor, s2.kor);
 			}
-		});
+		});//sort
 	}
 
 	private static void inputData() throws NumberFormatException, IOException {
