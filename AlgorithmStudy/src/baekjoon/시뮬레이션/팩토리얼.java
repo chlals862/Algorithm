@@ -1,4 +1,4 @@
-package baekjoon.수학;
+package baekjoon.시뮬레이션;
 
 import java.util.Scanner;
 

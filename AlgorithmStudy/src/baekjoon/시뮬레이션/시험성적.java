@@ -1,4 +1,4 @@
-package baekjoon.if문;
+package baekjoon.시뮬레이션;
 
 import java.util.Scanner;
 
