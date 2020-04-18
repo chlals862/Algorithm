@@ -51,7 +51,7 @@ public class 괄호_ING {
 
 			if (cnt == num && stack.isEmpty()) {
 				System.out.println("YES");
-			} else if (cnt != num && !stack.isEmpty()) {
+			} else if (cnt != num) {
 				System.out.println("NO");
 			}
 		}
