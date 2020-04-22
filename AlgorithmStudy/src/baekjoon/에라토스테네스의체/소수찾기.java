@@ -1,4 +1,4 @@
-package baekjoon.수학;
+package baekjoon.에라토스테네스의체;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package baekjoon.투포인터;
+package baekjoon.수학;
 
 /*N개의 수로 된 수열 A[1], A[2], …, A[N] 이 있다. 
 이 수열의 i번째 수부터 j번째 수까지의 합 
