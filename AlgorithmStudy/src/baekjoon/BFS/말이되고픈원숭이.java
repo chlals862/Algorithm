@@ -22,7 +22,7 @@ public class 말이되고픈원숭이 {
 		W = sc.nextInt(); // 너비
 		H = sc.nextInt(); // 높이
 		zoo = new int[H][W];
-		visit = new boolean[H][W][31];
+		visit = new boolean[H][W][31]; //0 >= K <= 30
 		count = 0;
 		for (int row = 0; row < H; row++) {
 			for (int col = 0; col < W; col++) {
@@ -31,10 +31,8 @@ public class 말이되고픈원숭이 {
 		}
 		// 원숭이새끼 시작점
 		// 분신이 분신을 낳고 그 분신이 분신을 ...8방향,4방향 다 조사
-		q.add(new int[] { 0, 0, K });
+		q.add(new int[] { 0, 0, K});
 		visit[0][0][K] = true;
-		//zoo[0][0]=2;
-		//view();
 
 		BFS();
 		if(flag == true) {
@@ -46,24 +44,23 @@ public class 말이되고픈원숭이 {
 
 	private static void BFS() {
 		while (!q.isEmpty()) {
-//			System.out.println("움직이기전");
-//			view();
 			int size = q.size();
 			for (int i = 0; i < size; i++) {
 				int[] current = q.poll();
-				int currentR = current[0];
+				int currentR = current[0];	
 				int currentC = current[1];
 				int currentAbility = current[2];
+
 				if(currentR == H-1 && currentC == W-1) {
 					flag = true;
 					return;
 				}
+				
 				for (int dir = 0; dir < 4; dir++) {
 					int nr = currentR + dr[dir];
 					int nc = currentC + dc[dir];
-
 					if (rangeCheck(nr, nc) && zoo[nr][nc] != 1 && visit[nr][nc][currentAbility] == false) {
-						//zoo[nr][nc]=2;
+						zoo[nr][nc]=4;
 						q.add(new int[] { nr, nc, currentAbility });
 						visit[nr][nc][currentAbility] = true;
 					}
@@ -74,7 +71,7 @@ public class 말이되고픈원숭이 {
 						int nc = currentC + dc[hir];
 						
 						if (rangeCheck(nr, nc) && zoo[nr][nc] != 1 && visit[nr][nc][currentAbility-1] == false) {
-							//zoo[nr][nc]=2;
+							zoo[nr][nc]=8;
 							q.add(new int[] {nr,nc,currentAbility-1});
 							visit[nr][nc][currentAbility-1] = true;
 						}
@@ -83,8 +80,6 @@ public class 말이되고픈원숭이 {
 				}
 
 			}
-//			System.out.println("움직인 후");
-//			view();
 			count++;
 		}
 

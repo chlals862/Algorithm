@@ -16,6 +16,7 @@ public class 아기상어 {
 	static int[] dc = {0,1,0,-1};
 	static Queue<BabyShark> q = new LinkedList<BabyShark>();
 	static ArrayList<Fish> catchFishList;
+	
 	static class Fish {
 		int row;
 		int col;
@@ -157,7 +158,6 @@ public class 아기상어 {
 		q.add(babyShark);
 		visit[babyShark.row][babyShark.col] = true;
 	}
-
 	//먹을수 있는 물고기가 있는지
 	private static int aquariumCheck() {
 		int cnt = 0;
