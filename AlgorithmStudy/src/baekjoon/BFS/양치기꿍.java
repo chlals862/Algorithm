@@ -47,8 +47,9 @@ public class 양치기꿍 {
 				}
 			}
 		}
-		
+		//맵의 늑대 수만큼 
 		int size = wolfList.size();
+		System.out.println("wolfList.size" + size);
 		for(int i=0;i<size;i++) {
 			int[] wcurrent = wolfList.poll();
 			if(visit[wcurrent[0]][wcurrent[1]] == false) {
@@ -57,11 +58,11 @@ public class 양치기꿍 {
 				BFS();
 			}
 		}
+		
 		System.out.println(sheep + " " + wolf);
 	}// main
 
 	private static void BFS() {
-			//늑대는 1마리 발견된 상태이므로
 			int w=1,s=0;
 			
 			while (!q.isEmpty()) {
