@@ -13,8 +13,6 @@ public class 단지번호붙이기 {
 	static int[] dr = {-1,0,1,0};
 	static int[] dc = {0,1,0,-1};
 	static int housecount;
-	
-	static int housesize;
 	static int mapSize;
 	static char num;
 	static ArrayList<Integer> answerlist;
@@ -30,15 +28,11 @@ public class 단지번호붙이기 {
 		num='1';
 		sc.nextLine();
 		housecount = 0;
-		housesize = 0;
 		answerlist = new  ArrayList<Integer>();
 		for(int row=0;row<mapSize;row++) {
 				String sLine = sc.nextLine();
 				map[row] = sLine.toCharArray();
 		}
-		
-		//view();
-		//System.out.println("-------------------------");
 		for (int row = 0; row < mapSize; row++) {
 			for (int col = 0; col < mapSize; col++) {
 				if (map[row][col] == '1' && visitMap[row][col] == false) {
@@ -64,8 +58,8 @@ public class 단지번호붙이기 {
 	private static void BFS(char num) {
 		while(!que.isEmpty()) {
 			int size = que.size();
-			//System.out.println("BFS 전 ");
-			//view();
+			System.out.println("BFS 전 ");
+			view();
 			for(int i=0;i<size;i++) {
 				int[] currentRC = que.poll();
 				for(int dir=0;dir<4;dir++) {
@@ -83,9 +77,8 @@ public class 단지번호붙이기 {
 					}
 				}
 			}
-			housesize++;
-			//System.out.println("BFS 후");
-			//view();
+			System.out.println("BFS 후");
+			view();
 		}	
 	}
 	
@@ -95,14 +88,14 @@ public class 단지번호붙이기 {
 		}
 		return false;
 	}
-//	private static void view() {
-//		for(int row=0;row<mapSize;row++) {
-//			for(int col=0;col<mapSize;col++) {
-//				System.out.print(map[row][col] + "");
-//			}
-//			System.out.println();
-//		}
-//		System.out.println();
-//		
-//	}
+	private static void view() {
+		for(int row=0;row<mapSize;row++) {
+			for(int col=0;col<mapSize;col++) {
+				System.out.print(map[row][col] + "");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		
+	}
 }
