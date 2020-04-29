@@ -49,7 +49,7 @@ public class 단지번호붙이기 {
 			}
 		}
 		Collections.sort(answerlist);
-		System.out.println(answerlist.size());
+		System.out.println("단지 수 = " + answerlist.size());
 		for(Integer number : answerlist) {
 			System.out.println(number);
 		}

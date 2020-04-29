@@ -38,7 +38,7 @@ public class 보물섬 {
 				
 				if(map[row][col] == 'L') {
 					visitMap = new boolean[R][C];
-					que.clear();
+					//que.clear();
 					insertQueue(row,col);
 					BFS();
 				}
@@ -65,7 +65,6 @@ public class 보물섬 {
 				}
 			}
 		}
-		
 		answer = Math.max(dist,answer);
 	}
 	
