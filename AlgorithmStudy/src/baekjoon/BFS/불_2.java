@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class 불 {
+public class 불_2 {
 	static int R,C;
 	static char[][] maze;
 	static boolean[][] jihoonVisit;
