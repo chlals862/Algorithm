@@ -61,7 +61,6 @@ public class 벽부수고이동하기 {
 							q.add(new int[] { nr, nc, currentAbility });
 							visit[nr][nc][currentAbility] = true;
 						}
-
 					}
 					if (currentAbility > 0) {
 						for (int hir = 0; hir < 4; hir++) {
