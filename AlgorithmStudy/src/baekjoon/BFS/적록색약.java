@@ -88,14 +88,14 @@ public class 적록색약 {
 				q.add(new Position(nr, nc, pos.isRgb));
 			}
 		//System.out.println("BFS후");
-		//	view();
+			view();
 		}
 	}
 	private static void view() {
 		for (int k = 0; k < 2; k++) {
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
-					System.out.print(visit[k][i][j]);
+					System.out.print(visit[k][i][j] + " ");
 				}
 
 				System.out.println();
