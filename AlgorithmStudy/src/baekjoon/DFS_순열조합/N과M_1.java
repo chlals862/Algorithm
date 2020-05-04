@@ -7,7 +7,7 @@ package baekjoon.DFS_순열조합;
  * 이걸 섞는 방법의 가지수
  * 
  * 4! -> 24개의 경우의수가 나옴
- * 
+ * 4 2 일경우 4!에서 2개만 -> 4X3 -> 12개의 가지수
  * */
 import java.util.Scanner;
 
@@ -52,3 +52,4 @@ public class N과M_1 {
 		visit = new boolean[N+1];
 	}
 }
+             

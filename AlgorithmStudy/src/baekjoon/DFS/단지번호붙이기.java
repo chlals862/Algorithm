@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/*
+7
+0110100
+0110101
+1110101
+0000111
+0100000
+0111110
+0111000
+*/
 public class 단지번호붙이기 {
 	static int N;
 	static char[][] area;
@@ -24,12 +34,10 @@ public class 단지번호붙이기 {
 			System.out.println(result);
 		}
 	}
-
 	private static void listSorting() {
+		//오름차순
 		Collections.sort(list);
-		
 	}
-
 	private static void dfsAll() {
 		for(int row=0;row<N;row++)  {
 			for(int col=0;col<N;col++) {
@@ -41,9 +49,7 @@ public class 단지번호붙이기 {
 				}
 			}
 		}
-
 	}
-
 	private static void dfs(int cr, int cc) {
 		visit[cr][cc] = true;
 		areaSize++;

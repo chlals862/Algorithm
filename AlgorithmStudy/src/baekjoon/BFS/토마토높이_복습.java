@@ -37,17 +37,16 @@ public class 토마토높이_복습 {
 				}
 			}
 		}
-		view();
+		//view();
 		// 저장될 때부터 모든 토마토가 익어있는 상태면 0을 출력,그렇지 못하면 -1을 출력
-		if (check() == true) {
+		if (check() == false) {
 			System.out.println("0");
-		} else
+		} else {
 			BFS();
-		// BFS를 돌고나서도 0인곳이 있으면
-		if (check())
-			System.out.println("-1");
-		else
-			System.out.println(time);
+		// BFS를 돌고나서도 0인곳이 없으면 -> true
+		if (check() == false) System.out.println(time-1);
+		else System.out.println(-1);
+		}
 	}
 
 	private static void BFS() {
@@ -83,8 +82,8 @@ public class 토마토높이_복습 {
 				}
 
 			}
-			System.out.println("BFS후");
-			view();
+			//System.out.println("BFS후");
+			//view();
 			time++;
 		}
 
