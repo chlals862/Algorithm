@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class 토마토_높이 {
+public class 토마토높이 {
 	static int R, C, H;
 	static int day;
 	static int[][][] box;
@@ -34,12 +34,14 @@ public class 토마토_높이 {
 				}
 			}
 		}
-		//처음에 0인곳이 없으면
+		//맵 전부 조사해서 0인곳이 없으면 
 		if(endCheck() == true) {
 			System.out.println("0");
-		}else {//그렇지 않으면
+		}else {
+			//BFS돌리고 나서 맵전부 조사해서 0인곳이 없으면
 			BFS();
-			if(endCheck()) System.out.println(day-1);
+			if(endCheck() == true) System.out.println(day-1);
+			//0인곳이 있으면 0인곳으로 못가니까
 			else System.out.println("-1");
 		}
 	}
@@ -53,6 +55,7 @@ public class 토마토_높이 {
 				int cc = currentTomato[1];
 				int ch = currentTomato[2];
 				
+				//4방향
 				for(int dir=0;dir<4;dir++) {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
@@ -64,6 +67,7 @@ public class 토마토_높이 {
 						}
 					}
 				}
+				//위아래
 				for(int dir=0;dir<2;dir++) {
 					int nh = ch + dh[dir];
 					if(heightCheck(nh)) {
@@ -74,7 +78,7 @@ public class 토마토_높이 {
 					}
 				}
 				
-			}//size
+			}
 			System.out.println("BFS후");
 			view();
 			day++;

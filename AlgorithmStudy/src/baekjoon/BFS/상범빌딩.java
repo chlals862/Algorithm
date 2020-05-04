@@ -23,6 +23,7 @@ public class 상범빌딩 {
 			H = sc.nextInt();
 			R = sc.nextInt();
 			C = sc.nextInt();
+			//입력의 끝 
 			if(H == 0 & R == 0 && C == 0 ) {
 				return;
 			}
@@ -110,17 +111,5 @@ public class 상범빌딩 {
 	private static void insertQueue(int row, int col, int h) {
 		q.add(new int[] {row,col,h});
 		visit[row][col][h] = true;
-	}
-	private static void view() {
-		for(int h=0;h<H;h++) {
-			for(int row=0;row<R;row++) {
-				for(int col=0;col<C;col++) {
-					System.out.print(building[row][col][h] + " ");
-				}
-				System.out.println();
-			}
-			System.out.println();
-		}
-
 	}
 }
