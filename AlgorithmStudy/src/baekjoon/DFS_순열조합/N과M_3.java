@@ -23,7 +23,6 @@ public class N과M_3 {
 	private static void dfs(int count) throws IOException {
 		if(count == M) {
 			for(Integer answer : choice) {
-				//System.out.print(answer + " ");
 				bw.write(answer + " ");
 			}
 			bw.newLine();
@@ -39,15 +38,10 @@ public class N과M_3 {
 		
 	}
 	private static void inputData() throws IOException {
-		//Scanner sc = new Scanner(System.in);
-		
-		//N = sc.nextInt();
-		//M = sc.nextInt();
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
 		choice = new int[M];
-		//sc.close();
 	}
 }
