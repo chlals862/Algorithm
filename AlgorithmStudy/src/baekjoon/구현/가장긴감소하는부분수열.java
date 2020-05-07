@@ -3,8 +3,6 @@ package baekjoon.구현;
 import java.util.Scanner;
 
 public class 가장긴감소하는부분수열 {
-	//static int[] arr;
-	//static int[] temp;
 	static int inputNum;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
