@@ -20,7 +20,6 @@ public class 유닛이동시키기 {
 	static int startW,endW;
 	static int SR,SC,RR,RC;
 	static int[][] map;
-	static int[][] unit;
 	static boolean[][] visit;
 	static boolean flag;
 	static int[] dr = {-1,0,1,0};
@@ -42,12 +41,10 @@ public class 유닛이동시키기 {
 		
 		map = new int[R][C];
 		visit = new boolean[R][C];
-		unit = new int[A][B];
-		//2,2 3,2 3,3 장애물
+		
 		for(int wall=0;wall<K;wall++) {
 			startW = sc.nextInt();
 			endW = sc.nextInt();
-			map[startW-1][endW-1] = 1;
 			visit[startW-1][endW-1] = true; 
 		}
 		
@@ -58,10 +55,8 @@ public class 유닛이동시키기 {
 		
 		q.add(new int[] {SR-1,SC-1});
 		visit[SR-1][SC-1] = true;
-		//view();
 		time = 0;
 		BFS();
-		
 		if(flag == true) {
 			System.out.println(time);
 		}else if(flag == false) {
@@ -70,15 +65,12 @@ public class 유닛이동시키기 {
 	}
 
 	private static void BFS() {
-		while(!q.isEmpty()) {
-			
+		while(!q.isEmpty()) {	
 			int size = q.size();
-
 			for(int i=0; i<size;i++) {
 				int[] currentRC = q.poll();
 				int currentR = currentRC[0];
 				int currentC = currentRC[1];
-				//System.out.println("currentR = " + currentR + " currentC = " + currentC );
 				if(currentR == RR-1 && currentC == RC-1) {
 					flag = true;
 					return;
@@ -90,18 +82,14 @@ public class 유닛이동시키기 {
 					
 					if(rangeCheck(nr,nc) && rangeWall(nr,nc)) {
 						if(visit[nr][nc] == false) {
-							map[nr][nc] = 2;
 							q.add(new int[] {nr,nc});
 							visit[nr][nc] = true;
 						}
 					}
 				}
 			}
-
-			//view();
 			time++;
 		}
-		
 	}
 
 	private static boolean rangeWall(int nr, int nc) {
@@ -120,24 +108,4 @@ public class 유닛이동시키기 {
 			return false;
 	}
 
-	private static void view() {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				System.out.print(map[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-		
-	}
-	private static void booleanview() {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				System.out.print(visit[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-		
-	}
 }
