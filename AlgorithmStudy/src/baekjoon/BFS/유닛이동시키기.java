@@ -1,8 +1,14 @@
 package baekjoon.BFS;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /*5 5 2 2 5
 2 2 
@@ -25,29 +31,27 @@ public class 유닛이동시키기 {
 	static int[] dr = {-1,0,1,0};
 	static int[] dc = {0,1,0,-1};
 	static Queue<int[]> q = new LinkedList<int[]>();
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		inputData();
 	}
 
-	private static void inputData() {
+	private static void inputData() throws IOException {
 		Scanner sc = new Scanner(System.in);
-		
+
 		R = sc.nextInt(); //행
 		C = sc.nextInt(); //열
 		A = sc.nextInt(); //유닛세로 크기
 		B = sc.nextInt(); //유닛가로 크기
 		K = sc.nextInt(); //장애물 개수
-		
 		map = new int[R][C];
 		visit = new boolean[R][C];
-		
 		for(int wall=0;wall<K;wall++) {
 			startW = sc.nextInt();
 			endW = sc.nextInt();
 			visit[startW-1][endW-1] = true; 
 		}
-		
+
 		SR = sc.nextInt(); //출발지 행
 		SC = sc.nextInt(); //출발지 열
 		RR = sc.nextInt(); //도착지 행

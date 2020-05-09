@@ -75,7 +75,6 @@ public class 탈출_복습 {
 							return;
 						}
 					}
-
 				case 2:
 					wMove(currentRC);
 					break;
@@ -172,17 +171,5 @@ public class 탈출_복습 {
 		for (int i = 0; i < list.size(); i++) {
 			q.add(list.get(i));
 		}
-
-	}
-
-	private static void view() {
-		for (int row = 0; row < R; row++) {
-			for (int col = 0; col < C; col++) {
-				System.out.print(map[row][col]);
-			}
-			System.out.println();
-		}
-		System.out.println();
-
 	}
 }
