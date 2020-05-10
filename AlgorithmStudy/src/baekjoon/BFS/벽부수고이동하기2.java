@@ -1,3 +1,5 @@
+package baekjoon.BFS;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -22,13 +24,14 @@ public class 벽부수고이동하기2 {
 		int y;
 		int crash;
 		int dist;
-		
-		public Node(int _x, int _y, int _crash, int _dist) {
-			this.x = _x;
-			this.y = _y;
-			this.crash = _crash;
-			this.dist = _dist;
+		public Node(int x, int y, int crash, int dist) {
+			this.x = x;
+			this.y = y;
+			this.crash = crash;
+			this.dist = dist;
 		}
+		
+		
 		
 	}
 	public static void main(String args[]) throws IOException {
