@@ -82,7 +82,7 @@ public class PuyoPuyo {
 		q.clear();
 		visit = new boolean[12][6]; //새로 쓸거야 
 		inserQueue(row,col);
-		
+
 		while(!q.isEmpty()) {
 			int size = q.size();
 			for(int i=0;i<size;i++) {
