@@ -89,7 +89,7 @@ public class PuyoPuyo {
 				int[] currentRC = q.poll();
 				int cr = currentRC[0];
 				int cc = currentRC[1];
-				
+				//4방향 조사
 				for(int dir=0;dir<4;dir++) {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
@@ -112,6 +112,7 @@ public class PuyoPuyo {
 		q.add(new int[] {cr,cc});
 		visit[cr][cc] = true;
 	}
+	
 	private static void inputData() {
 		Scanner sc = new Scanner(System.in);
 		map = new char[12][6];
