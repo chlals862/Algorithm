@@ -1,4 +1,4 @@
-package baekjoon.수학;
+package baekjoon.DP;
 /* 정수1 = 1개 -> 1
  * 정수2 = 2개 -> 1+1 , 2
  * 정수3 = 4개 -> 1+1+1,1+2,2+1,3
