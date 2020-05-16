@@ -47,7 +47,7 @@ public class 미로탐색 {
 			count++;//? 2
 			int size = q.size(); //for문에 대입하면 size가 바뀔수 있으니 처음에 원하는 반복문 수만큼 돌리질 못함
 			for(int i=0;i<size;i++) {//1개씩          		                //0 1
-				int[] currentRC = q.remove(); //처음에 -> currentRC[] -> {0,0} 
+				int[] currentRC = q.poll(); //처음에 -> currentRC[] -> {0,0} 
 				for(int dir = 0; dir < 4; dir++) { //4방향
 					int nr = currentRC[0] + dr[dir]; //-1,0,1,0
 					int nc = currentRC[1] + dc[dir]; //0,1,0,-1
