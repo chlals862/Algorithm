@@ -105,7 +105,6 @@ public class 성실한개미 {
 			for(int col = 1; col <= 10; col++) {
 				maze[row][col] = sc.nextInt();
 			}
-		}
-		
+		}	
 	}
 }
