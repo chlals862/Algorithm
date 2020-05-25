@@ -9,7 +9,6 @@ public class 팩토리얼 {
 		Scanner sc = new Scanner(System.in);
 		int input = sc.nextInt();
 		int num = 1;
-		if (input >= 0 && input <= 12) {
 			//i는 n승, 
 			//input이 4일때
 			//4*3*2*1
@@ -20,7 +19,6 @@ public class 팩토리얼 {
 				//input은 4
 				 num = i*num;	
 			}
-		}//if
 		System.out.println(num);
 	}
 }
