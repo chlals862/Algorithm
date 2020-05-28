@@ -26,11 +26,7 @@ public class 단어정렬 {
 		 * feff0041 || B = feff0042 A.compareTo(B) -> -1 ->A가 B보다 작음
 		 */
 		// 문자들을 담을 list
-		// List<String> list = new ArrayList<String>();
-		// String[] arr = new String[];
-		// String[] list = new String[input];
-
-		// String[] temp = new String[input];
+	
 		List<String> list = new ArrayList<String>(s);
 		
 		// 입력 && 로직
@@ -60,9 +56,7 @@ public class 단어정렬 {
 				return -1;
 			}
 		};//compare
-		for (int i = 0; i < list.size(); i++) {
-			//System.out.print("정렬 전 = " + list.get(i).length());
-		}
+
 		Collections.sort(list, compare);
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
@@ -70,25 +64,4 @@ public class 단어정렬 {
 		}
 	}// main
 }
-//--------------------------------------------------------------------------
 
-// step1. 각 문자열의 길이가 가장 적은것 부터
-//		for(int i=0;i<list.length;i++) {
-//			for(int j=i+1;j<list.length;j++) {
-//				if(list[i].length() > list[j].length()) {
-//					
-//					temp[i] = list[i];
-//					list[i] = list[j];
-//					list[j] = temp[i];
-//					//System.out.println("temp[i] = " + temp[i]);
-//					//System.out.println("list[i] = " + list[i]);
-//					//System.out.println("list[j] = " + list[j]);
-//				} else if(list[i].length() == list[j].length()) {
-//					//step2. 문자열의 길이가 같으면 사전순으로 -> 정렬
-//					Arrays.sort(list);
-//					System.out.println(list[i]);
-//				}
-//			}
-//		}
-
-// 출

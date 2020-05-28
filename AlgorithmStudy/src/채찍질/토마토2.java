@@ -1,4 +1,4 @@
-package practice;
+package 채찍질;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
