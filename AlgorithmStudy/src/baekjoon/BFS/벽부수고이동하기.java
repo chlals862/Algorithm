@@ -63,19 +63,17 @@ public class 벽부수고이동하기 {
 						}
 					}
 					if (currentAbility > 0) {
-						for (int hir = 0; hir < 4; hir++) {
-							int hr = currentR + dr[dir];
-							int hc = currentC + dc[dir];
+				
 
-							if (rangeCheck(hr, hc)) {
-								if (map[hr][hc] == '0'
-										|| map[hr][hc] == '1' && visit[hr][hc][currentAbility - 1] == false) {
-									map[hr][hc] = '0';
-									q.add(new int[] { hr, hc, currentAbility - 1 });
-									visit[hr][hc][currentAbility - 1] = true;
+							if (rangeCheck(nr, nc)) {
+								if (map[nr][nc] == '0'
+										|| map[nr][nc] == '1' && visit[nr][nc][currentAbility - 1] == false) {
+									map[nr][nc] = '0';
+									q.add(new int[] { nr, nc, currentAbility - 1 });
+									visit[nr][nc][currentAbility - 1] = true;
 									
 								}
-							}
+							
 						}
 					}
 				}
