@@ -23,7 +23,6 @@ public class 안전영역 {
 				map[row][col] = sc.nextInt();
 				if(map[row][col] > maxHeight) {
 					System.out.println("maxHeight = " + maxHeight);
-					 
 					maxHeight = map[row][col];
 				}
 			}
