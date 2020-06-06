@@ -43,7 +43,7 @@ public class N과M_1 {
 		}
 	}
 	private static void setData() {
-		
+		//3 = N , 1 = M
 		Scanner sc = new Scanner(System.in);
 		
 		N = sc.nextInt();

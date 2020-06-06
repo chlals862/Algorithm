@@ -8,15 +8,13 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-// 0 ->빈땅 ,1->저글링
-public class 저글링방사능오염 {
-	static boolean flag;
-	static int time;
-	static int count;
-	static int R,C;
-	static int SR,SC;
+
+public class 저글링방사능오염_복습 {
 	static char[][] map;
 	static boolean[][] visit;
+	static int time,cnt;
+	static int R,C;
+	static int pollutionR,pollutionC;
 	static Queue<int[]> q;
 	static int[] dr = {-1,0,1,0};
 	static int[] dc = {0,1,0,-1};
@@ -28,81 +26,68 @@ public class 저글링방사능오염 {
 		logic();
 	}
 	private static void logic() throws IOException {
-		insertQueue(SR-1,SC-1);
-		time = 3;
+		q = new LinkedList<int[]>();
+		q.add(new int[] {pollutionR-1,pollutionC-1});
+		map[pollutionR-1][pollutionC-1] = '2';
+		visit[pollutionR-1][pollutionC-1] = true;
 		BFS();
+		count();
+		printData();
+	}
+	private static void count() {
 		for(int row=0;row<R;row++) {
 			for(int col=0;col<C;col++) {
 				if(map[row][col] == '1') {
-					count++;
+					cnt++;
 				}
 			}
 		}
-		bw.write(time-1+"\n"+count);
+	}
+	private static void printData() throws IOException {
+		bw.write(time+2+"\n");
+		bw.write(cnt+"\n");
 		bw.flush();
 		bw.close();
 	}
 	private static void BFS() {
 		while(!q.isEmpty()) {
-
 			int size = q.size();
 			for(int i=0;i<size;i++) {
-				int[] currentRC  = q.poll();
+				int[] currentRC = q.poll();
 				int cr = currentRC[0];
 				int cc = currentRC[1];
 				for(int dir=0;dir<4;dir++) {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
-					
 					if(rangeCheck(nr,nc)) {
-									
 						if(map[nr][nc] == '1' && visit[nr][nc] == false) {
-							insertQueue(nr,nc);
+							q.add(new int[] {nr,nc});
+							visit[nr][nc] = true;
+							map[nr][nc] = '2';
 						}
 					}
-
 				}
 			}
-			System.out.println("BFS 후");
-			view();
-
 			time++;
 		}
 	}
-	private static void view() {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				System.out.print(map[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-	private static void insertQueue(int nr, int nc) {
-		map[nr][nc] = '2';
-		q.add(new int[] {nr,nc});
-		visit[nr][nc] = true;
-
+	private static boolean rangeCheck(int nr, int nc) {
+		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
+				return false;
 	}
 	private static void setData() throws IOException {
 		st = new StringTokenizer(br.readLine());
-
 		C = Integer.parseInt(st.nextToken());
-		R = Integer.parseInt(st.nextToken());
+		R = Integer.parseInt(st.nextToken());	
 		map = new char[R][C];
 		visit = new boolean[R][C];
-		q = new LinkedList<int[]>();
+		
 		for(int row=0;row<R;row++) {
 			String sLine = br.readLine();
 			map[row] = sLine.toCharArray();
 		}
 		st = new StringTokenizer(br.readLine());
-		SC = Integer.parseInt(st.nextToken());
-		SR = Integer.parseInt(st.nextToken());
-
-	}
-	private static boolean rangeCheck(int nr, int nc) {
-		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
-		return false;
+		pollutionC = Integer.parseInt(st.nextToken());
+		pollutionR = Integer.parseInt(st.nextToken());
 	}
 }
