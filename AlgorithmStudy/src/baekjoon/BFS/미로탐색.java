@@ -33,13 +33,24 @@ public class 미로탐색 {
 			//미로 1,0값을 하나씩 쪼개서 row에 넣음
 			Map[row] = sLine.toCharArray();
 		}	
+		view();
 		//시작점 0,0을 추가하고, true로 바꿔주자 -> 0,0은 방문한걸로 
 		//false - > 방문X , true -> 방문 O
 		q.add(new int[] {0,0});
 		visitMap[0][0] = true;
 		//bfs돌리는 함수
-		bfs();
+		//bfs();
 		System.out.println(count);
+	}
+
+	private static void view() {
+		for(int row=0;row<N;row++) {
+			for(int col=0;col<M;col++) {
+				System.out.print(Map[row][col]+ " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 
 	private static void bfs() {
