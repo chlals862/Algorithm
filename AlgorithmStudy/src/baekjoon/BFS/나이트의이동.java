@@ -31,7 +31,7 @@ public class 나이트의이동 {
 			
 			map = new int[side][side];
 			visitMap = new boolean[side][side];
-			
+			view();
 			que.add(new int[] { startR, startC });
 			visitMap[startR][startC] = true;
 			
@@ -43,6 +43,17 @@ public class 나이트의이동 {
 				System.out.println(count);
 		}
 	}
+	private static void view() {
+		for(int row=0;row<side;row++) {
+			for(int col=0;col<side;col++) {
+				System.out.print(map[row][col]+ " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+		
+	
 	private static void BFS() {
 
 		while (!que.isEmpty()) {
