@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+import org.omg.CORBA.Current;
+
 /* D = A의 제곱
  * S = n-1   -> if n이 0일때 -> 9999가 저장
  * L = n의 각 자릿수를 왼편으로  1234 -> 3412 //    1234 -> 2341L -> 3412L   result : LL
@@ -27,7 +29,7 @@ import java.util.StringTokenizer;
  * */
 
 public class DSLR {
-	static int T,A,B;
+	static int T, A, B;
 	static Queue<cal> q;
 	static boolean[] visit;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -37,19 +39,20 @@ public class DSLR {
 	static class cal {
 		int num;
 		String result;
-		
+
 		public cal(int num, String result) {
 			this.num = num;
 			this.result = result;
 		}
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		setData();
 	}
+
 	private static void setData() throws IOException {
 		T = Integer.parseInt(br.readLine());
-		for(int testCase = 0; testCase < T; testCase++) {
+		for (int testCase = 0; testCase < T; testCase++) {
 			st = new StringTokenizer(br.readLine());
 			A = Integer.parseInt(st.nextToken());
 			B = Integer.parseInt(st.nextToken());
@@ -64,43 +67,49 @@ public class DSLR {
 		}
 		bw.close();
 	}
-	private static void BFS() throws IOException {
-		while(!q.isEmpty()) {
-				cal currentNum = q.poll();
 
-				if(currentNum.num == B) {
-					bw.write(currentNum.result + "\n");
-					return;
-				}
-				//수식 검색함
-				int d = (currentNum.num*2)%10000;
-				int s = currentNum.num == 0 ? 9999 : currentNum.num -1;
-				int l = ((currentNum.num % 1000) * 10) + (currentNum.num / 1000);
-				int r = ((currentNum.num %10) * 1000) + (currentNum.num / 10);
-				
-				if(visit[d] == false) {
+	private static void BFS() throws IOException {
+		while (!q.isEmpty()) {
+			cal currentNum = q.poll();
+
+			if (currentNum.num == B) {
+				bw.write(currentNum.result + "\n");
+				return;
+			}
+			// 수식 검색함
+			if (currentNum.num * 2 < 10000) {
+				int d = (currentNum.num * 2);
+				if (visit[d] == false) {
 					visit(d);
 					q.add(new cal(d, currentNum.result + "D"));
 				}
-				if(visit[s] == false) {
-					visit(s);
-					q.add(new cal(s, currentNum.result + "S"));
-				}
-				if(visit[l] == false) {
-					visit(l);
-					q.add(new cal(l, currentNum.result + "L"));
-				}
-				if(visit[r] == false) {
-					visit(r);
-					q.add(new cal(r, currentNum.result + "R"));
-				}
 			}
+			int s = currentNum.num == 0 ? 9999 : currentNum.num - 1;
+			//1234 % 1000 -> 234 , 234 * 10 -> 2340 + (1234/1000 -> 1); -> 1234는 2341로
+			//현재 수를 1000으로 나눈 나머지 값 * 10 + 현재 수를 1000으로 나눈 값
+			int l = ((currentNum.num % 1000) * 10) + (currentNum.num / 1000);
+			//1234 %10 -> 4 , 4 * 1000 -> 4000 + (1234/10 -> 123); -> 4123
+			//현재 수를 10으로 나눈 나머지 값 * 1000 + 현재 수를 10으로 나눈 값
+			int r = ((currentNum.num % 10) * 1000) + (currentNum.num / 10);
 
+			if (visit[s] == false) {
+				visit(s);
+				q.add(new cal(s, currentNum.result + "S"));
+			}
+			if (visit[l] == false) {
+				visit(l);
+				q.add(new cal(l, currentNum.result + "L"));
+			}
+			if (visit[r] == false) {
+				visit(r);
+				q.add(new cal(r, currentNum.result + "R"));
+			}
 		}
-	
+
+	}
+
 	private static void visit(int d) {
 		visit[d] = true;
 	}
 
 }
-
