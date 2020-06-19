@@ -19,6 +19,7 @@ public class 인구이동_미완 {
 	static int count,sum,result;//연합을 맺은 국가의 수, 연합의 인구 수
 	static int[][] map;
 	static int[][] border;
+	static int[][] temp;
 	static boolean flag;
 	static boolean[][] visit;
 	static List<Integer> list;
@@ -39,6 +40,8 @@ public class 인구이동_미완 {
 		R = Integer.parseInt(st.nextToken());
 		map = new int[N][N];
 		border = new int[N][N];
+		temp = new int[N][N];
+		
 		visit = new boolean[N][N];
 		list = new ArrayList<Integer>();
 		for(int row=0;row<N;row++) {
@@ -54,10 +57,10 @@ public class 인구이동_미완 {
 		
 		
 	/*
-	 * 3 5 10
-	 *  5 16 27
-	 * 15 26 37
-	 * 25 36 47
+	   3 5 10
+	   5 16 27
+	  15 26 37
+	  25 36 47
 ----------------------------
 	 * 1연합		2연합		3연합
 국가수            3		  3       3
@@ -82,23 +85,43 @@ public class 인구이동_미완 {
 		}
 		System.out.println("연합 정보");
 		view();
+		System.out.println("최종");
+		view2();
 		if(flag == false) break;
-	
-	}//while
 
-	}
-	
+	}//while
+	}//main
 	
 	//연합별 총 인구수/국가수 -> result
 	//-> map에 update
 	//인구 이동
 	private static void logic(int row, int col) {
 		
-		if(border[row][col] == num-1) {
-			System.out.println((num-1) + "==" + border[row][col]);
+		if(border[row][col] == (num-1)) {
+		//if(border[row][col] == 2) {
+			System.out.println((num-1) + " == " + border[row][col]);
 			map[row][col] = result;
+			System.out.println("result = " + result);
+			flag = true;
+			//map[row][col] = 26;
 		}
 	}
+	/* 1연합  합->45
+	 * 0,0
+	 * 1,0
+	 * 2,0
+	 * 
+	 * 2연합 합->78
+	 * 0,1
+	 * 1,1
+	 * 2,1
+	 * 
+	 * 3연합 합->111
+	 * 0,2
+	 * 1,2
+	 * 2,2
+	 * 
+	 * */
 	//연합구성
 	private static void union(int row, int col) {
 		if(border[row][col] == 0) {//연합을 가지지 않은 국가 조사
@@ -111,6 +134,7 @@ public class 인구이동_미완 {
 			System.out.println(border[row][col]+" 연합");
 			System.out.println("합 = " + sum);
 			System.out.println("인구이동 = " + result);
+			System.out.println("count = " + count);
 		}
 	}
 
@@ -133,7 +157,7 @@ public class 인구이동_미완 {
 					if(rangeCheck(nr,nc)) {
 						//현재 국가와 인접한 국가의 인구수가 L이상 R이하 + 탐색하지 않은 곳이면
 						if(Math.abs(map[cr][cc] - map[nr][nc]) >= L && Math.abs(map[cr][cc] - map[nr][nc] ) <= R && visit[nr][nc] == false) {
-							flag = true;
+							//flag = true;
 							insertQueue(nr, nc);
 							border[nr][nc] = num;
 							count++;
@@ -144,7 +168,9 @@ public class 인구이동_미완 {
 				}
 			}
 			result = (int)Math.floor(sum/count);
+			System.out.println("BFS 후");
 			view2();
+			view3();
 		}
 	}
 
@@ -170,6 +196,15 @@ public class 인구이동_미완 {
 		for(int row=0;row<N;row++) {
 			for(int col=0;col<N;col++) {
 				System.out.print(map[row][col] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	private static void view3() {
+		for(int row=0;row<N;row++) {
+			for(int col=0;col<N;col++) {
+				System.out.print(visit[row][col] + " ");
 			}
 			System.out.println();
 		}
