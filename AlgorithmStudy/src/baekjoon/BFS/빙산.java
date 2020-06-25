@@ -106,8 +106,19 @@ public class 빙산 {
 				}
 				
 			}
+			view();
 		}
 		
+	}
+
+	private static void view() {
+		for(int row=0;row<R;row++) {
+			for(int col=0;col<C;col++) {
+				System.out.print(sea[row][col]+ " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 
 	private static void insertQueue(int row, int col) {
