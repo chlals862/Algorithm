@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class 숨박꼭질 {
+public class 숨바꼭질 {
 
 	static int Csubin;
 	static int Ctarget;

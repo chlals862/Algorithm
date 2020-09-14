@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 숨박꼭질_복습 {
+public class 숨바꼭질_복습 {
 	static boolean flag;
 	static int time;
 	static int N,K; //N-> 수빈이 위치  | K-> 동생위치
@@ -38,6 +38,7 @@ public class 숨박꼭질_복습 {
 
 	private static void BFS() {
 		time = 0;
+		int count = 0;
 		while(!q.isEmpty()) {
 			int size = q.size();
 			for(int i=0;i<size;i++) {

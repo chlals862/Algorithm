@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 public class 점프왕쩰리_ing {
 	static int N;
 	static int[][] map;
-	static boolean[][][] visit;
+	static boolean[][] visit;
 	static boolean flag;
 	static Queue<int[]> q;
 	static int[] dr = {1};
@@ -28,9 +28,9 @@ public class 점프왕쩰리_ing {
 	private static void logic() throws IOException {
 		q = new LinkedList<int[]>();
 		int count = map[0][0];
-		q.add(new int[] { 0, 0, count});
-		visit[0][0][count] = true;
-		bfs();
+		q.add(new int[] { 0, 0});
+		visit[0][0] = true;
+		bfs(count);
 		if(flag) {
 			bw.write("HaruHaru" + "\n");
 		} else {
@@ -40,35 +40,38 @@ public class 점프왕쩰리_ing {
 		bw.close();
 		
 	}
-	private static void bfs() {
-		while (!q.isEmpty()) {
+	private static void bfs(int ca) {
+		while(!q.isEmpty()) {
 			int size = q.size();
-			System.out.println("size = " + size);
-			for (int i = 0; i < size; i++) {
+			for(int i=0;i<size;i++) {
 				int[] currentRC = q.poll();
 				int cr = currentRC[0];
 				int cc = currentRC[1];
-				int ca = currentRC[2];
-				for (int dir = 0; dir < 1; dir++) {
+				for(int dir=0;dir<1;dir++) {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
-					if (nr == N-1 && nc == N-1 && ca == 0 && map[nr][nc] == -1) {
-						System.out.println("ca = " + ca);
+					
+					if(nr+ca == N-1 && ca == 0 || nc+ca == N-1 && ca == 0) {
 						flag = true;
-						return;	
+						return;
 					}
-					if (ca > 0) {
-						if (rangeCheck(nr, nc)) {
-							if (map[nr][nc] > 0 && !visit[nr][nc][ca - 1]) {
-								q.add(new int[] {nr,nc,ca-1});
-								visit[nr][nc][ca-1] = true;
-								ca = map[nr][nc];
-								System.out.println("ca 22= " + map[nr][nc]);
-							}
+					if(rangeCheck(nr+ca,nc)) {
+						if(map[nr+ca][nc] != -1 && !visit[nr+ca][nc]) {
+							q.add(new int[] {nr+ca,nc});
+							visit[nr+ca][nc] = true;
+							ca = map[nr+ca][nc];
+							ca--;
+						}
+					}
+					if(rangeCheck(nr,nc+ca)) {
+						if(map[nr][nc+ca] != -1 && !visit[nr][nc+ca]) {
+							q.add(new int[] {nr,nc+ca});
+							visit[nr][nc+ca] = true;
+							ca = map[nr][nc+ca];
+							ca--;
 						}
 					}
 				}
-				System.out.println("ca = " + ca);
 			}
 		}
 	}
@@ -82,7 +85,7 @@ public class 점프왕쩰리_ing {
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		map = new int[N][N];
-		visit = new boolean[N][N][101];
+		visit = new boolean[N][N];
 		for (int row = 0; row < N; row++) {
 			st = new StringTokenizer(br.readLine());
 			for (int col = 0; col < N; col++) {
