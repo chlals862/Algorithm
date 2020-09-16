@@ -33,7 +33,6 @@ public class 공주님을구해라_ing {
 		bfs(item);
 		if(time <= T && flag == true) {
 			bw.write(time + "\n");
-			
 		}else {
 			bw.write("Fail");
 		}
