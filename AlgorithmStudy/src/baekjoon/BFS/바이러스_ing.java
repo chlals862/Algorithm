@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 바이러스 {
+public class 바이러스_ing {
 	static int allComputer, netComputer,result;
 	static int[][] network;
 	static boolean[] visit;
