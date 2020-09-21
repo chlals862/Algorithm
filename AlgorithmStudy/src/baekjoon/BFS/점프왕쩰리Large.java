@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 점프왕쩰리 {
+public class 점프왕쩰리Large {
 	static int N,jump;
 	static int[][] map;
 	static boolean[][] visit;
