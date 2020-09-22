@@ -57,11 +57,11 @@ public class 농장관리_ing {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
 					if(rangeCheck(nr,nc)) {
-						if(farm[cr][cc]+1 == farm[nr][nc] && !visit[nr][nc] && farm[nr][nc] != 0) {
+						if(farm[cr][cc] == farm[nr][nc]+1 && !visit[nr][nc]) {
 							q.add(new int[] {nr,nc});
 							visit[nr][nc] = true;
 						}
-						if(farm[cr][cc]-1 == farm[nr][nc] && !visit[nr][nc] && farm[nr][nc] != 0) {
+						if(farm[cr][cc] == farm[nr][nc]-1 && !visit[nr][nc]) {
 							q.add(new int[] {nr,nc});
 							visit[nr][nc] = true;
 						}

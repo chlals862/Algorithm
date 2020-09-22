@@ -56,7 +56,7 @@ public class 움직이는미로탈출 {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
 					if (rangeCheck(nr, nc)) {
-						if(map[nr][nc] != '#' && !visit[nr][nc]) {
+						if(map[nr][nc] == '.' && !visit[nr][nc]) {
 							q.add(new int[] {nr,nc});
 							visit[nr][nc] = true;
 						}
@@ -65,7 +65,6 @@ public class 움직이는미로탈출 {
 			}
 			downWall();
 		}
-
 	}
 
 	private static void downWall() {
