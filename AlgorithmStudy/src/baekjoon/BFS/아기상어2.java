@@ -33,6 +33,7 @@ public class 아기상어2 {
 				for(int dir=0;dir<8;dir++) {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
+					
 					if(rangeCheck(nr,nc)) {
 						if(temp[nr][nc] > temp[cr][cc]+1) {
 							temp[nr][nc] = temp[cr][cc]+1;
@@ -47,6 +48,7 @@ public class 아기상어2 {
 		bw.flush();
 		bw.close();
 	}
+
 	private static boolean rangeCheck(int nr, int nc) {
 		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
 			return false;
