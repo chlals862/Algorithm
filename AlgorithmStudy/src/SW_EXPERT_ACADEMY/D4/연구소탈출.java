@@ -25,14 +25,12 @@ public class 연구소탈출 {
 	static StringTokenizer st;
 	static boolean flag;
 	static boolean die;
-
 	static class SV {
 		int sRow;
 		int sCol;
 		int vRow;
 		int vCol;
 		int id;
-
 		public SV(int sRow, int sCol, int vRow, int vCol, int id) {
 			this.sRow = sRow;
 			this.sCol = sCol;
@@ -40,9 +38,7 @@ public class 연구소탈출 {
 			this.vCol = vCol;
 			this.id = id;
 		}
-
 	}
-
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		setData();
 	}
@@ -121,9 +117,7 @@ public class 연구소탈출 {
 			}
 			time++;
 		}
-		
 	}
-
 	private static void vMove(SV current) {
 		int cr = current.vRow;
 		int cc = current.vCol;
@@ -141,9 +135,7 @@ public class 연구소탈출 {
 				die = true;
 			}
 		}
-		
 	}
-
 	private static void sMove(SV current) {
 		int cr = current.sRow;
 		int cc = current.sCol;
@@ -158,21 +150,9 @@ public class 연구소탈출 {
 				return;
 			}
 		}
-		
 	}
-
 	private static boolean rangeCheck(int nr, int nc) {
 		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
 			return false;
-	}
-
-	private static void printData() {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				System.out.print(map[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
 	}
 }
