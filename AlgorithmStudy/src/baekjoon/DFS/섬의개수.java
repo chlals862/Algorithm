@@ -8,14 +8,13 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class 양한마리양두마리 {
-	static int T,R,C;
-	static int count;
-	static char[][] map;
+public class 섬의개수 {
+	static int R,C,count;
+	static int[][] map;
 	static boolean[][] visit;
+	static int[] dr = {-1,0,1,0,-1,-1,1,1};
+	static int[] dc = {0,1,0,-1,-1,1,1,-1};
 	static ArrayList<Integer> list;
-	static int[] dr = {-1,0,1,0};
-	static int[] dc = {0,1,0,-1};
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
@@ -23,44 +22,39 @@ public class 양한마리양두마리 {
 		setData();
 	}
 	private static void setData() throws IOException {
-		st = new StringTokenizer(br.readLine());
-		T = Integer.parseInt(st.nextToken());
-		for(int t=0;t<T;t++) {
+		while(true) {
 			st = new StringTokenizer(br.readLine());
-			R = Integer.parseInt(st.nextToken());
 			C = Integer.parseInt(st.nextToken());
-			map = new char[R][C];
+			R = Integer.parseInt(st.nextToken());
+			map = new int[R][C];
 			visit = new boolean[R][C];
 			list = new ArrayList<Integer>();
 			for(int row=0;row<R;row++) {
-				String sLine = br.readLine();
+				st = new StringTokenizer(br.readLine());
 				for(int col=0;col<C;col++) {
-					map[row][col] = sLine.charAt(col);
+					map[row][col] = Integer.parseInt(st.nextToken());
 				}
 			}
-			logic();
-		}//case
-		bw.flush();
-		bw.close();
-	}
-	private static void logic() throws IOException {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				if(map[row][col] == '#' && !visit[row][col]) {
-					dfs(row,col);
-					list.add(count);
+			for(int row=0;row<R;row++) {
+				for(int col=0;col<C;col++) {
+					if(map[row][col] == 1 && !visit[row][col]) {
+						dfs(row,col);
+						list.add(count);
+					}
 				}
 			}
+			if(R == 0 && C == 0) return;
+			bw.write(list.size()+"\n");
+			bw.flush();
 		}
-		bw.write(list.size()+"\n");
 	}
 	private static void dfs(int row, int col) {
 		visit[row][col] = true;
-		for(int dir=0;dir<4;dir++) {
+		for(int dir=0;dir<8;dir++) {
 			int nr = row + dr[dir];
 			int nc = col + dc[dir];
 			if(rangeCheck(nr,nc)) {
-				if(map[nr][nc] == '#' && !visit[nr][nc]) {
+				if(map[nr][nc] == 1 && !visit[nr][nc]) {
 					dfs(nr,nc);
 				}
 			}
