@@ -10,7 +10,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class 지뢰찾기2_ing {
-	static int ans = -1;
+	static String ans = "-1";
 	static int bomb = 95;
 	static char num;
 	static int startR, startC;
@@ -26,14 +26,15 @@ public class 지뢰찾기2_ing {
 
 	public static void main(String[] args) throws IOException {
 		setData();
-		System.out.println((char)+45);
+		System.out.println(ans.toCharArray());
 		logic();
 	}
 
 	private static void logic() throws IOException {
+		
 		q = new LinkedList<int[]>();
 		if(map[startR][startC] == '1') {
-			map[startR][startC] = (char)+45;
+			
 		}
 		printData();
 		for (int row = 0; row < 9; row++) {
