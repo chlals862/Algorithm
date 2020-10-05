@@ -1,22 +1,31 @@
-package 재귀함수_연습;
-//https://www.youtube.com/watch?v=7C9RgOcvkvo -> 30분
+package 연습_BFS;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class DFS함수정의 {
-
+public class BFS함수정의 {
 	public static boolean[] visit = new boolean[9];
 	public static ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();
-	
-	//DFS함수 정의
-	private static void dfs(int a) {
+	//BFS 함수 정의
+	public static void bfs(int start) {
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.offer(start);//삽입
 		//현재 노드를 방문 처리
-		visit[a] = true;
-		System.out.print(a + " "); //1 2 7 6 8 3 4 5
-		//현재 노드와 연결된 다른 노드를 재귀적으로 방문
-		for(int i=0;i<graph.get(a).size();i++) {
-			int y = graph.get(a).get(i);
-			if(!visit[y]) dfs(y);
+		visit[start] = true;
+		//큐가 빌 때까지 반복
+		while(!q.isEmpty()) {
+			//큐에서 하나의 원소를 뽑아 출력
+			int x = q.poll();
+			System.out.print(x + " ");
+			//해당 원소와 연결된, 아직 방문하지 않은 원소들을 큐에 삽입
+			for(int i=0;i<graph.get(x).size();i++) {
+				int y = graph.get(x).get(i);
+				if(!visit[y]) {
+					q.offer(y);
+					visit[y] = true;
+				}
+			}
 		}
 	}
 	public static void main(String[] args) {
@@ -58,8 +67,7 @@ public class DFS함수정의 {
 		graph.get(8).add(1);
 		graph.get(8).add(7);
 		
-		dfs(1);
+		bfs(1);
 	}
 
-	
 }
