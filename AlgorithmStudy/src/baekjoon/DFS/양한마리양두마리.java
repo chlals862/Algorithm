@@ -5,67 +5,71 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class 음식물피하기 {
-	static int R,C,K,cnt;
-	static int max = 0;
-	static int startR,startC;
-	static int[][] map;
+public class 양한마리양두마리 {
+	static int T,R,C;
+	static int count;
+	static char[][] map;
+	static boolean[][] visit;
+	static ArrayList<Integer> list;
 	static int[] dr = {-1,0,1,0};
 	static int[] dc = {0,1,0,-1};
-	static boolean[][] visit;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	public static void main(String[] args) throws IOException {
 		setData();
-		logic();
+	}
+	private static void setData() throws IOException {
+		st = new StringTokenizer(br.readLine());
+		T = Integer.parseInt(st.nextToken());
+		for(int t=0;t<T;t++) {
+			st = new StringTokenizer(br.readLine());
+			R = Integer.parseInt(st.nextToken());
+			C = Integer.parseInt(st.nextToken());
+			map = new char[R][C];
+			visit = new boolean[R][C];
+			list = new ArrayList<Integer>();
+			for(int row=0;row<R;row++) {
+				String sLine = br.readLine();
+				for(int col=0;col<C;col++) {
+					map[row][col] = sLine.charAt(col);
+				}
+			}
+			logic();
+		}//case
+		bw.flush();
+		bw.close();
 	}
 	private static void logic() throws IOException {
 		for(int row=0;row<R;row++) {
 			for(int col=0;col<C;col++) {
-				if(map[row][col] == 1 && !visit[row][col]) {
-					cnt = 1;
+				if(map[row][col] == '#' && !visit[row][col]) {
 					dfs(row,col);
-					max = (Math.max(max, cnt) == max ) ? max : cnt;
+					list.add(count);
 				}
 			}
 		}
-		bw.write(max+"\n");
-		bw.flush();
-		bw.close();
+		bw.write(list.size()+"\n");
 	}
 	private static void dfs(int row, int col) {
+		count++;
 		visit[row][col] = true;
 		for(int dir=0;dir<4;dir++) {
 			int nr = row + dr[dir];
 			int nc = col + dc[dir];
 			if(rangeCheck(nr,nc)) {
-				if(map[nr][nc] == 1 && !visit[nr][nc]) {
+				if(map[nr][nc] == '#' && !visit[nr][nc]) {
 					dfs(nr,nc);
-					cnt++;
 				}
 			}
 		}
 		
 	}
-	private static void setData() throws IOException {
-		st = new StringTokenizer(br.readLine());
-		R = Integer.parseInt(st.nextToken());
-		C = Integer.parseInt(st.nextToken());
-		K = Integer.parseInt(st.nextToken());
-		map = new int[R][C];
-		visit = new boolean[R][C];
-		for(int k=0;k<K;k++) {
-			st = new StringTokenizer(br.readLine());
-			startR = Integer.parseInt(st.nextToken())-1;
-			startC = Integer.parseInt(st.nextToken())-1;
-			map[startR][startC] = 1; 
-		}
-	}
 	private static boolean rangeCheck(int nr, int nc) {
-		if(nr >=0 && nr < R && nc >= 0 && nc < C) return true;
+		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
 			return false;
 	}
 }
