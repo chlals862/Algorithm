@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 바이러스전파 {
+public class 바이러스전파_BFS {
 	static int N,T,day;
 	static int schoolAreaR,schoolAreaC;
 	static int virusR,virusC;

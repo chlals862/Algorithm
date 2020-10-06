@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 호수의수구하기 {
+public class 호수의수구하기_BFS {
 	static int R, C;
 	static char[][] map;
 	static boolean[][] visit;
