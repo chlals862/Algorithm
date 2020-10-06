@@ -1,5 +1,4 @@
 package baekjoon.DFS;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -8,7 +7,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
-
 public class 영역구하기 {
 	static int R,C,K;
 	static int num,count;
@@ -30,7 +28,6 @@ public class 영역구하기 {
 		for(int row=0;row<R;row++) {
 			for(int col=0;col<C;col++) {
 				if(map[row][col] == 0 && !visit[row][col]) {
-					//count++;
 					count = 0;
 					dfs(row,col);
 					list.add(count);
@@ -79,7 +76,6 @@ public class 영역구하기 {
 			endC = Integer.parseInt(st.nextToken());
 			for(int row=startC;row<endC;row++) {
 				for(int col=startR;col<endR;col++) {
-					map[row][col] = 1;
 					visit[row][col] = true;
 				}
 			}
