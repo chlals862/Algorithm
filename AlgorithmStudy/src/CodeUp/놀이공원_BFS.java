@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 놀이공원 {
+public class 놀이공원_BFS {
 	static int R,C;
 	static int time;
 	static boolean flag;

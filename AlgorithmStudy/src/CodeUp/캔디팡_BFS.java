@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 캔디팡 {
+public class 캔디팡_BFS {
 	static int cnt;
 	static int[][] map;
 	static boolean[][] visit;
