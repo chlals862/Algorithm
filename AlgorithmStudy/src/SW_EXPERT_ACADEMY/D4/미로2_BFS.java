@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 미로2 {
+public class 미로2_BFS {
 	static int T;
 	static char[][] maze;
 	static boolean[][] visit;
