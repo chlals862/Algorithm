@@ -1,4 +1,4 @@
-package 연습_재귀함수;
+package 연습_재귀;
 
 public class 일부터N까지합 {
 

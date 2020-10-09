@@ -1,4 +1,4 @@
-package 연습_재귀함수;
+package 연습_재귀;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;

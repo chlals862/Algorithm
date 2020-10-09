@@ -1,4 +1,4 @@
-package 연습_재귀함수;
+package 연습_재귀;
 //https://www.youtube.com/watch?v=7C9RgOcvkvo -> 30분
 
 import java.util.ArrayList;

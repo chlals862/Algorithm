@@ -22,8 +22,6 @@ import java.util.StringTokenizer;
 오 - 1,3,6,7
 위 - 1,2,5,6
 아래 - 1,2,4,7
-
-
 */
 public class 탈주범검거 {
 	

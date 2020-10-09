@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 수영장 {
+public class 수영장_ing {
 	static int T;
 	static int max = Integer.MAX_VALUE;
 	static int day,month,quarter,year;
