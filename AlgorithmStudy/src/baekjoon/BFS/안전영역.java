@@ -22,7 +22,7 @@ public class 안전영역 {
 			for(int col=0;col<N;col++) {
 				map[row][col] = sc.nextInt();
 				if(map[row][col] > maxHeight) {
-					System.out.println("maxHeight = " + maxHeight);
+					//System.out.println("maxHeight = " + maxHeight);
 					maxHeight = map[row][col];
 				}
 			}
@@ -33,6 +33,7 @@ public class 안전영역 {
 	private static void rain() {
 		//비가 내리는 모든 양의 조사, 비가 내리지 않는 경우도 있음.
 		for(int rainfall=0;rainfall<maxHeight;rainfall++) {
+			System.out.println("maxHeight = " + maxHeight);
 			bfsAll(rainfall);
 		}
 		
