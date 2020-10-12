@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 장기 {
+public class 장기_BFS {
 	static boolean flag;
 	static int count;
 	static int R,C;
