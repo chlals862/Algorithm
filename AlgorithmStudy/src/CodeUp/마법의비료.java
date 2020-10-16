@@ -75,8 +75,8 @@ public class 마법의비료 {
 	}
 	private static void setData() throws IOException {
 		st = new StringTokenizer(br.readLine());
-		C = Integer.parseInt(st.nextToken());
 		R = Integer.parseInt(st.nextToken());
+		C = Integer.parseInt(st.nextToken());
 		map = new int[R][C];
 		visit = new boolean[R][C];
 		for(int row=0;row<R;row++) {
