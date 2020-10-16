@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 전광판전구조작 {
+public class 전광판전구조작_BFS {
 	static int R,C,whiteN,blackN;
 	static int[][] map;
 	static boolean[][] bVisit;

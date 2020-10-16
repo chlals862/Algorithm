@@ -57,7 +57,6 @@ public class 그림판채우기 {
 				}
 			}
 		}
-		
 	}
 	private static void check() {
 		q.add(new int[] {0,0});
