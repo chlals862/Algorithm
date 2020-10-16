@@ -4,8 +4,8 @@ public class 팩토리얼 {
 
 	public static void main(String[] args) {
 		//각각의 방식으로 구현한 n! 출력 (n=5)
-		System.out.println("반복적으로 구현 :" + factorialIterative(10));
-		System.out.println("재귀적으로 구현 :" + factorialRecursive(10));
+		System.out.println("반복적으로 구현 :" + factorialIterative(4));
+		System.out.println("재귀적으로 구현 :" + factorialRecursive(4));
 	}
 	//재귀적
 	private static int factorialRecursive(int n) {

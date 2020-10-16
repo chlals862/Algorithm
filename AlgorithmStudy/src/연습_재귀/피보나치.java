@@ -38,8 +38,8 @@ public class 피보나치 {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("10번째의 원소는 : " + fibonacci(10));//반복 함수
-		System.out.println("10번쨰의 원소는 : " + fibonacci2(10));//재귀 함수
+		System.out.println("10번째의 원소는 : " + fibonacci(12));//반복 함수
+		System.out.println("10번쨰의 원소는 : " + fibonacci2(13));//재귀 함수
 	}
 
 }
