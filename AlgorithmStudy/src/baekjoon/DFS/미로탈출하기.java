@@ -43,15 +43,6 @@ public class 미로탈출하기 {
 		bw.flush();
 		bw.close();
 	}
-	private static void printMap() {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				System.out.print(memo[row][col]+ "");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
 	private static int dfs(int cr, int cc) {
 		visit[cr][cc] = true;
 		int dir = getDirection(cr, cc);

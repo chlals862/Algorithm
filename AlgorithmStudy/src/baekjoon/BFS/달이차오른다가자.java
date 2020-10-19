@@ -112,7 +112,13 @@ public class 달이차오른다가자 {
 	}
 	private static boolean visitCheck(int nr, int nc, Minsik currentMinsik) {
 		String currentKeySet = currentMinsik.getKeyInformation();
-		if(visit[nr][nc][Character.getNumericValue(currentKeySet.charAt(0))][Character.getNumericValue(currentKeySet.charAt(1))][Character.getNumericValue(currentKeySet.charAt(2))][Character.getNumericValue(currentKeySet.charAt(3))][Character.getNumericValue(currentKeySet.charAt(4))][Character.getNumericValue(currentKeySet.charAt(5))] == false) {
+		if(visit[nr][nc]
+				[Character.getNumericValue(currentKeySet.charAt(0))]
+				[Character.getNumericValue(currentKeySet.charAt(1))]
+				[Character.getNumericValue(currentKeySet.charAt(2))]
+				[Character.getNumericValue(currentKeySet.charAt(3))]
+				[Character.getNumericValue(currentKeySet.charAt(4))]
+				[Character.getNumericValue(currentKeySet.charAt(5))] == false) {
 			return true;
 		}
 		return false;
