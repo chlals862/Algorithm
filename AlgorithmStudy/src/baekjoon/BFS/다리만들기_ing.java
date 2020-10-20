@@ -32,7 +32,6 @@ public class 다리만들기_ing {
 		q = new LinkedList<int[]>();
 		
 		num = 1;
-		count = 1;
 		for(int row=0;row<N;row++) {
 			for(int col=0;col<N;col++) {
 				if(map[row][col] == 1 && !visit[row][col]) {
@@ -57,18 +56,13 @@ public class 다리만들기_ing {
 				}
 			}
 		}
-		System.out.println("numbering 후");
-		printMap();
-		System.out.println("count = " + count);
-		Collections.sort(list);
-		System.out.println("result = " + result);
-		for(Integer answer : list) {
-			System.out.println(answer);
-		}
-			System.out.println("최종 값 : " + list.get(0));	
+		System.out.println(max);
 	}
 	private static void bfs() {
-		while(!q.isEmpty()) {
+		int count = 0;
+		boolean find = false;
+		
+		loop : while(!q.isEmpty()) {
 			int size = q.size();
 			for(int i=0;i<size;i++) {
 				int[] currentRC = q.poll();
@@ -85,17 +79,20 @@ public class 다리만들기_ing {
 							temp[nr][nc] = 1;
 						}
 						if(map[nr][nc] > 0 && map[nr][nc] != island) {
-							System.out.println("count = " + count);
-							list.add(count);
-							count++;
-							result += 1;
+//							System.out.println("count = " + count);
+//							list.add(count);
+//							count++;
+//							result += 1;
+							find = true;
+							break loop;
 						}
 					}
 				}
 			}
-			//count++; 
-			System.out.println("temp");
-			printMap2();
+			count+=1; 
+			if(find) {
+				if(max > count) max = count;
+			}
 		}
 	}
 	private static void numbering(int num) {
