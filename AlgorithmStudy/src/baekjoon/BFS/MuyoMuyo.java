@@ -38,7 +38,7 @@ public class MuyoMuyo {
 	}
 	private static void gravity() {
 		for(int col=0;col<10;col++) {
-			for(int row=R-1; row>=0; row--) {
+			for(int row=0; row<R; row++) {
 				if(map[row][col] == 0) {
 					int nr = row;
 					while(true) {
