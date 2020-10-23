@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-public class 인구이동 {
+public class 인구이동_ing {
 	static int N, low, high,moveCount;
 	static int unionNum;
 	static int[][] map;
