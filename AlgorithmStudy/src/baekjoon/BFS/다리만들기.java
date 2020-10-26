@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 //육지마다 numbering -> 해당 육지에서 다른 육지가 나온 값들 중에서 최소값 출력하기. 
-public class 다리만들기_ing {
+public class 다리만들기 {
 	static int N,num;
 	static int max = Integer.MAX_VALUE;
 	static int[][] inputMap;
@@ -92,6 +92,8 @@ public class 다리만들기_ing {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
 					if(rangeCheck(nr,nc)) {
+						//bridge에 입력된 수를 더해주면 다리의 길이가 나타남 
+						//이 수를 list에 더해서 min값 출력
 						if(inputMap[nr][nc] != 0 
 								&& inputMap[cr][cc] != inputMap[nr][nc])
 							list.add(bridge[cr][cc]+bridge[nr][nc]);
