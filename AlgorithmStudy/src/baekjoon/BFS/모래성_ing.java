@@ -7,10 +7,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class 모래성 {
+public class 모래성_ing {
 	static int R,C,time,count;
 	static int[][] map;
-	static int[][] temp;
 	static boolean[][] visit;
 	static boolean flag;
 	static int[] dr = {-1,0,1,0,-1,-1,1,1};
@@ -30,16 +29,18 @@ public class 모래성 {
 			wave();
 			if(!flag) break;
 			time++;
+			printMap();
 		}
 		bw.write(time+"");
 		bw.flush();
 		bw.close();
 	}
+	
 	private static void wave() {
 		for(int row=0;row<R;row++) {
 			for(int col=0;col<C;col++) {
-				if(temp[row][col] > 0 && temp[row][col] <= 8 && !visit[row][col]) {
-					int strong = temp[row][col];
+				if(map[row][col] > 0 && map[row][col] <= 8 && !visit[row][col]) {
+					int strong = map[row][col];
 					visit[row][col] = true;
 					bfs(strong,row,col);
 				}
@@ -52,13 +53,13 @@ public class 모래성 {
 					int nr = row + dr[dir];
 					int nc = col + dc[dir];
 					if (rangeCheck(nr, nc)) {
-						if (temp[nr][nc] == 0 && !visit[nr][nc]) {
+						if (map[nr][nc] == 0 && !visit[nr][nc]) {
 							count++;
 						}
 					}
 				}
 			if(strong <= count) {
-				temp[row][col] = 0;
+				map[row][col] = 0;
 				flag = true;
 			}
 	}
@@ -73,13 +74,22 @@ public class 모래성 {
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
 		map = new int[R][C];
-		temp = new int[R][C];
 		for(int row=0;row<R;row++) {
 			String str = br.readLine();
 			for(int col=0;col<C;col++) {
 				if(str.charAt(col) != '.') 
-					temp[row][col] = Integer.parseInt(str.substring(col,col+1));
+					map[row][col] = Integer.parseInt(str.substring(col,col+1));
 			}
 		}
 	}
+	private static void printMap() {
+		for(int row=0;row<R;row++) {
+			for(int col=0;col<C;col++) {
+				System.out.print(map[row][col] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+
 }
