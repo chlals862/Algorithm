@@ -6,7 +6,41 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
+/*
+10 3
+1 2 3 4 5 -1 -2 -3 -4 -5
 
+1 5 -3
+
+6 10 5
+
+2 7 2
+order[] = > 변화량에 대한 배열
+
+1. -> 1 5 -3  
+uphill = 0 
+order[] => 0 0 0 0 0 0 0 0 0 0
+
+uphill = -3   
+order[1] = 0;
+uphill -> uphill + order[1] -> -3
+order[1] -> -3
+-3 0 0 0 0 0 0 0 0 0
+order[2] = uphill + order[2] -> -3
+-3 0 0 0 0 3 0 0 0 0 0 -> order[6]부터 다시 0
+
+2. -> 6 10 5
+현재 order[] => -3 0 0 0 0 3 0 0 0 0
+6 ~ 10번째 5 덮기
+-3  0  0  0   0 8 0 0 0 0 0 -5
+-3 -3 -3 -3 -3 5 5 5 5 5 0 
+
+3. -> 2 7 2
+현재 order[] =>
+ -3 0 0 0 0 8 0 0 0 0 -5
+2 ~ 7 번째 2 덮기
+-3  2  0  0  0 8 0 -2 0 0 -5[11번째]
+		*/
 public class 태상이의훈련소생활 {
 	static int N, K, uphill;
 	static int[] map;
@@ -34,15 +68,14 @@ public class 태상이의훈련소생활 {
 			int startR = Integer.parseInt(st.nextToken()) - 1;
 			int endR = Integer.parseInt(st.nextToken());
 			int num = Integer.parseInt(st.nextToken());
-			uphill = num;
 			if (num < 0) {
-				order[startR] += uphill;
-				order[endR] += -uphill;
+				order[startR] += num;
+				order[endR] += -num;
 			} else if(num > 0) {
-				order[startR] += uphill;
+				order[startR] += num;
 				if(endR == map.length) {
-					order[order.length-1] -= uphill;
-				}else order[endR] -= uphill;
+					order[order.length-1] -= num;
+				}else order[endR] -= num;
 			}
 		}
 		int num = order[0];
