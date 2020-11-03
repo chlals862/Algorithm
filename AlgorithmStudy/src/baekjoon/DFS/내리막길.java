@@ -36,7 +36,7 @@ result = 3;
 1 1 1 3 3
 
 */
-public class 내리막길_시간초과 {
+public class 내리막길 {
 	static int R,C;
 	static int[][] map;
 	static int[][] memo;
