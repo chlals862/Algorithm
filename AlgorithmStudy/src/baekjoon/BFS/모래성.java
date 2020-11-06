@@ -12,7 +12,6 @@ import java.util.StringTokenizer;
 public class 모래성 {
 	static int R,C,time;
 	static int[][] map;
-	static boolean[][] visit;
 	static int[] dr = {-1,0,1,0,-1,-1,1,1};
 	static int[] dc = {0,1,0,-1,-1,1,1,-1};
 	static Queue<int[]> q = new LinkedList<int[]>();
@@ -26,9 +25,8 @@ public class 모래성 {
 	private static void logic() throws IOException {
 		for(int row=0;row<R;row++) {
 			for(int col=0;col<C;col++) {
-				if(map[row][col] == 0 && !visit[row][col]) {
+				if(map[row][col] == 0 ) {
 					q.add(new int[] {row,col});
-					visit[row][col] = true;
 				}
 			}
 		}
@@ -71,7 +69,6 @@ public class 모래성 {
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
 		map = new int[R][C];
-		visit = new boolean[R][C];
 		for(int row=0;row<R;row++) {
 			String str = br.readLine();
 			for(int col=0;col<C;col++) {
