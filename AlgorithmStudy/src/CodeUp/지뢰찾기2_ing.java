@@ -29,6 +29,7 @@ public class 지뢰찾기2_ing {
 	private static void logic() throws IOException {
 		if(map[startR][startC] != '1') {
 		q = new LinkedList<int[]>();
+		
 		for (int row = 0; row < 9; row++) {
 			for (int col = 0; col < 9; col++) {
 				if (map[row][col] == '1' && !visit[row][col]) {
@@ -44,6 +45,9 @@ public class 지뢰찾기2_ing {
 				}
 			}
 		}
+		System.out.println("넘버링 후");
+		printMap();
+		
 		q.clear();
 		visit = new boolean[9][9];
 		q.add(new int[] {startR,startC});
@@ -59,20 +63,30 @@ public class 지뢰찾기2_ing {
 			}
 		}
 		printData();
-		}else if(map[startR][startC] == '1') {
-			//System.out.printf("%c",map[startR][startC],1);
+		//지뢰가 아닐 때
+		}else {
+			String[][] result = new String[9][9];
 			for(int row=0;row<9;row++) {
 				for(int col=0;col<9;col++) {
-					map[row][col] = 95;
+					if(map[startR][startC] == '1') {
+						result[startR][startC] = "-1";
+						result[row][col] = "_";
+					}
 				}
 			}
-			StringBuilder sb = new StringBuilder();
-			sb.append(map[startR][startC] = 1);
-			//map[startR][startC] = '1';
-			printData();
-		}
 		
+		for(int row=0;row<9;row++) {
+			for(int col=0;col<9;col++) {
+				bw.write(result[row][col]+" ");
+			}
+			bw.write("\n");
+		}
+		bw.flush();
+		bw.close();
+		}
 	}
+	
+
 	private static void bfs2() {
 		for(int row=0;row<9;row++) {
 			for(int col=0;col<9;col++) {
@@ -165,18 +179,6 @@ public class 지뢰찾기2_ing {
 		st = new StringTokenizer(br.readLine());
 		startR = Integer.parseInt(st.nextToken()) - 1;
 		startC = Integer.parseInt(st.nextToken()) - 1;
-		System.out.println("초기");
-		printMap();
-	}
-
-	private static void printMap() {
-		for(int row=0;row<9;row++) {
-			for(int col=0;col<9;col++) {
-				System.out.print(map[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
 	}
 
 	private static void printData() throws IOException {
@@ -189,4 +191,13 @@ public class 지뢰찾기2_ing {
 		bw.flush();
 		//bw.close();
 	}	
+	private static void printMap() {
+		for(int row=0;row<9;row++) {
+			for(int col=0;col<9;col++) {
+				System.out.print(map[row][col] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
 }

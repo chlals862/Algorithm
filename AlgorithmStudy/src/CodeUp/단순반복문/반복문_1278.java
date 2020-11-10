@@ -1,4 +1,4 @@
-package CodeUp;
+package CodeUp.단순반복문;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class 자릿수계산 {
+public class 반복문_1278 {
 	static String result;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
