@@ -16,6 +16,7 @@ public class 지뢰찾기2_ing {
 	static char[][] map;
 	static boolean[][] visit;
 	static Queue<int[]> q;
+	static boolean flag;
 	static int[] dr = { -1, 0, 1, 0, -1, -1, 1, 1 };
 	static int[] dc = { 0, 1, 0, -1, -1, 1, 1, -1 };
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,9 +28,8 @@ public class 지뢰찾기2_ing {
 	}
 
 	private static void logic() throws IOException {
-		if(map[startR][startC] != '1') {
+		if(map[startR][startC] != '1' && !flag) {
 		q = new LinkedList<int[]>();
-		
 		for (int row = 0; row < 9; row++) {
 			for (int col = 0; col < 9; col++) {
 				if (map[row][col] == '1' && !visit[row][col]) {
@@ -45,9 +45,7 @@ public class 지뢰찾기2_ing {
 				}
 			}
 		}
-		System.out.println("넘버링 후");
-		printMap();
-		
+		check();
 		q.clear();
 		visit = new boolean[9][9];
 		q.add(new int[] {startR,startC});
@@ -62,9 +60,10 @@ public class 지뢰찾기2_ing {
 				}
 			}
 		}
-		printData();
-		//지뢰가 아닐 때
-		}else {
+		System.out.println(flag);
+		//printData();
+		 
+		if(map[startR][startC] == '1' && !flag){
 			String[][] result = new String[9][9];
 			for(int row=0;row<9;row++) {
 				for(int col=0;col<9;col++) {
@@ -74,7 +73,6 @@ public class 지뢰찾기2_ing {
 					}
 				}
 			}
-		
 		for(int row=0;row<9;row++) {
 			for(int col=0;col<9;col++) {
 				bw.write(result[row][col]+" ");
@@ -82,10 +80,41 @@ public class 지뢰찾기2_ing {
 			bw.write("\n");
 		}
 		bw.flush();
-		bw.close();
-		}
+		}else if (map[startR][startC] != '1' && flag) {
+				String str = Integer.toString(map[startR][startC]-'0');
+				String[][] result = new String[9][9];
+				for (int row = 0; row < 9; row++) {
+					for (int col = 0; col < 9; col++) {
+						result[startR][startC] = str;
+						result[row][col] = "_";
+					}
+				}
+				for(int row=0;row<9;row++) {
+					for(int col=0;col<9;col++) {
+						bw.write(result[row][col]+" ");
+					}
+					bw.write("\n");
+				}
+				bw.flush();
+			}
+		}else printData();
+		//a System.out.println(flag);
+		// printData();
 	}
 	
+
+	private static void check() {
+		
+		for(int dir=0;dir<4;dir++) {
+			int nr = startR + dr[dir];
+			int nc = startC + dc[dir];
+			if(rangeCheck(nr,nc)) {
+				if(map[nr][nc] == '0') return;
+				else flag = true;
+			}
+		}
+		
+	}
 
 	private static void bfs2() {
 		for(int row=0;row<9;row++) {
