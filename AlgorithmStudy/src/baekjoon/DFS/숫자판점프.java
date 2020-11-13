@@ -41,7 +41,6 @@ public class 숫자판점프 {
 	private static void dfs(int row, int col, int length,String temp) {
 		if(length == 6) {
 			set.add(temp);
-			//result++;
 			return;
 		}else {
 			for(int dir=0;dir<4;dir++) {
