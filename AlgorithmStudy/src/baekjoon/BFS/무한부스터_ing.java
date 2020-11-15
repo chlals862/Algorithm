@@ -10,76 +10,55 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class 무한부스터_ing {
-	static int R, C,time;
+	static int R, C;
 	static int[][] map;
 	static boolean[][] visit;
 	static Queue<int[]> q = new LinkedList<int[]>();
-	static int[] dr = { -1, 0, 1, 0 };
-	static int[] dc = { 0, 1, 0, -1 };
+	static int[] dr = {0,1};
+	static int[] dc = {1,0};
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
-
 	public static void main(String[] args) throws IOException {
 		setData();
 		logic();
+		bw.flush();
+		bw.close();
 	}
-
-	private static void logic() {
-		q.add(new int[] { 0, 0 });
+	private static void logic() throws IOException {
+		q.add(new int[] {0,0,0});
 		visit[0][0] = true;
-		time = 1;
-		bfs();
-		printVisit();
-		System.out.println(time);
-	}
-
-	private static void bfs() {
-		while (!q.isEmpty()) {
+		while(!q.isEmpty()) {
 			int size = q.size();
-			for (int i = 0; i < size; i++) {
+			for(int i=0;i<size;i++) {
 				int[] currentRC = q.poll();
 				int cr = currentRC[0];
 				int cc = currentRC[1];
+				int cnt = currentRC[2];
 				int booster = map[cr][cc];
-				System.out.println("Booster = " + booster);
-				for (int dir = 0; dir < 4; dir++) {
-					for (int k = 0; k < booster; k++) {
-						int nr = cr + dr[dir] + k;
-						int nc = cc + dc[dir] + k;
-						if (rangeCheck(nr, nc)) {
-							if(nr == R-1 && nc == C-1) {
-								return;
-							}
+				if(cr == R-1 && cc == C-1) {
+					bw.write(cnt+"");
+					return;
+				}
+				for(int dir=0;dir<2;dir++) {
+					for(int j=1;j<=booster;j++) {
+						int nr = cr + dr[dir]*j;
+						int nc = cc + dc[dir]*j;
+						if(rangeCheck(nr,nc)) {
 							if(!visit[nr][nc]) {
-								q.add(new int[] {nr,nc});
+								q.add(new int[] {nr,nc,cnt+1});
 								visit[nr][nc] = true;
 							}
 						}
 					}
-				}
+ 				}
 			}
-			time++;
-			printVisit();
 		}
 	}
-
-	private static void printVisit() {
-		for(int row=0;row<R;row++) {
-			for(int col=0;col<C;col++) {
-				System.out.print(visit[row][col]+"");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-
 	private static boolean rangeCheck(int nr, int nc) {
-		if (nr >= 0 && nr < R && nc >= 0 && nc < C)
-			return true;
-		return false;
+		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
+			return false;
 	}
-
 	private static void setData() throws IOException {
 		st = new StringTokenizer(br.readLine());
 		R = Integer.parseInt(st.nextToken());
@@ -92,17 +71,5 @@ public class 무한부스터_ing {
 				map[row][col] = Integer.parseInt(st.nextToken());
 			}
 		}
-		printMap();
 	}
-
-	private static void printMap() {
-		for (int row = 0; row < R; row++) {
-			for (int col = 0; col < C; col++) {
-				System.out.print(map[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-
 }
