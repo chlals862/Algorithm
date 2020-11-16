@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 무한부스터_ing {
+public class 무한부스터 {
 	static int R, C;
 	static int[][] map;
 	static boolean[][] visit;
