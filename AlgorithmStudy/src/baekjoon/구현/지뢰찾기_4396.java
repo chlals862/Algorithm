@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 지뢰찾기 {
+public class 지뢰찾기_4396 {
 	static int N;
 	static String[][] result;
 	static int[][] map;
@@ -22,64 +22,37 @@ public class 지뢰찾기 {
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static boolean mine;
-
 	public static void main(String[] args) throws IOException {
 		setData();
 		logic();
 	}
-
 	private static void logic() throws IOException {
-		for (int row = 0; row < N; row++) {
-			for (int col = 0; col < N; col++) {
-				if (input[row][col] == '*') {
-					map[row][col] = -1;
-					visit[row][col] = true;
-				}
-			}
-		}
-
+		for (int row = 0; row < N; row++) 
+			for (int col = 0; col < N; col++) 
+				if (input[row][col] == '*') map[row][col] = -1;
 		numbering();
 		change();
-		if(mine) {
-			check();
-		}
 		printMap();
 		bw.flush();
 		bw.close();
 	}
-
-	private static void check() {
-		for(int row=0;row<N;row++) {
-			for(int col=0;col<N;col++) {
-				if(map[row][col] == -1) result[row][col] = "*";
-			}
-		}
-	}
-
 	private static void change() {
-		for (int row = 0; row < N; row++) {
-			for (int col = 0; col < N; col++) {
-				if (resultVisit[row][col] && map[row][col] != -1) {
-					result[row][col] = Integer.toString(map[row][col]);
-				}else if(resultVisit[row][col] && map[row][col] == -1) {
-					mine = true;
-				}else result[row][col] = ".";
-			}
+		for (int row = 0; row < N; row++) 
+			for (int col = 0; col < N; col++) 
+				if (resultVisit[row][col] && map[row][col] != -1) result[row][col] = Integer.toString(map[row][col]);
+				else if(resultVisit[row][col] && map[row][col] == -1) mine = true;
+				else result[row][col] = ".";
+		if(mine) 
+			for(int row=0;row<N;row++) 
+				for(int col=0;col<N;col++) 
+					if(map[row][col] == -1) result[row][col] = "*";
 		}
-	}
-
 	private static void numbering() {
-		for (int row = 0; row < N; row++) {
-			for (int col = 0; col < N; col++) {
-				if (map[row][col] == 0) {
-					q.add(new int[] { row, col });
-				}
-			}
-		}
+		for (int row = 0; row < N; row++) 
+			for (int col = 0; col < N; col++) 
+				if (map[row][col] == 0) q.add(new int[] { row, col });
 		bfs();
-
 	}
-
 	private static void bfs() {
 		while (!q.isEmpty()) {
 			int size = q.size();
@@ -90,23 +63,16 @@ public class 지뢰찾기 {
 				for (int dir = 0; dir < 8; dir++) {
 					int nr = cr + dr[dir];
 					int nc = cc + dc[dir];
-					if (rangeCheck(nr, nc)) {
-						if (map[nr][nc] == -1) {
-							map[cr][cc] += 1;
-						}
-					}
+					if (rangeCheck(nr, nc)) 
+						if (map[nr][nc] == -1) map[cr][cc] += 1;
 				}
 			}
 		}
-
 	}
-
 	private static boolean rangeCheck(int nr, int nc) {
-		if (nr >= 0 && nr < N && nc >= 0 && nc < N)
-			return true;
-		return false;
+		if (nr >= 0 && nr < N && nc >= 0 && nc < N) return true;
+			return false;
 	}
-
 	private static void setData() throws IOException {
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
@@ -126,36 +92,10 @@ public class 지뢰찾기 {
 			String str = br.readLine();
 			for (int col = 0; col < N; col++) {
 				output[row][col] = str.charAt(col);
-				if (output[row][col] == 'x')
-					resultVisit[row][col] = true;
+				if (output[row][col] == 'x') resultVisit[row][col] = true;
 			}
 		}
-
-		//printMap1();
-		//printMap2();
 	}
-
-	private static void printMap1() {
-		for (int row = 0; row < N; row++) {
-			for (int col = 0; col < N; col++) {
-				System.out.print(input[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-
-	private static void printMap2() {
-		for (int row = 0; row < N; row++) {
-			for (int col = 0; col < N; col++) {
-				System.out.print(output[row][col] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-
-	}
-
 	private static void printMap() throws IOException {
 		for (int row = 0; row < N; row++) {
 			for (int col = 0; col < N; col++) {
@@ -163,6 +103,5 @@ public class 지뢰찾기 {
 			}
 			bw.write("\n");
 		}
-
 	}
 }
