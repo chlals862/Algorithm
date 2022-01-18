@@ -26,4 +26,5 @@ public class 전자레인지 {
 		System.out.println(time);
 	}
 	
+	
 }
