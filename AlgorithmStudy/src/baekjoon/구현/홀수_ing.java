@@ -1,16 +1,29 @@
 package baekjoon.구현;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class 홀수_ing {
 	static int cnt,sum;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
-		
+		List<Integer> list = new ArrayList<Integer>();
+		for(int i=0;i<7;i++) {
+			int input = sc.nextInt();
+			if(input % 2 == 1) {
+				list.add(input);
+				sum += input;
+			}
+		}
+		Collections.sort(list);
+		if(list.isEmpty()) System.out.println(-1);
+		else {
+			System.out.println(sum);
+			System.out.println(list.get(0));
+		}
 		
 		//ArrayList<Integer> list = new ArrayList<Integer>();
 		
