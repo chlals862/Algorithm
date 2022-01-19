@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class 홀수_ing {
+public class 홀수_2576 {
 	static int cnt,sum;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
