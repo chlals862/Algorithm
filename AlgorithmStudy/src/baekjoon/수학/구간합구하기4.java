@@ -59,5 +59,6 @@ public class 구간합구하기4 {
 		}
 		bw.flush();
 		bw.close();
+		
 	}
 }
