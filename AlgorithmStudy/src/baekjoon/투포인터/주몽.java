@@ -1,4 +1,4 @@
-package baekjoon.수학;
+package baekjoon.투포인터;
 
 import java.util.Arrays;
 import java.util.Scanner;
