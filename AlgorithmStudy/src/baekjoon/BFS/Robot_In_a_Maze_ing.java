@@ -28,30 +28,20 @@ public class Robot_In_a_Maze_ing {
 	static StringTokenizer st;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		T = Integer.parseInt(br.readLine());
-		for(int t=1;t<=T;t++) {
+		for(int t=0;t<T;t++) {
 			st = new StringTokenizer(br.readLine());
 			R = Integer.parseInt(st.nextToken());
 			C = Integer.parseInt(st.nextToken());
 			char[][] map = new char[R][C];
 			boolean[][] visit = new boolean[R][C];
 			Queue<int[]> q = new LinkedList<int[]>();
-			
-			int count = 0;
 			boolean flag = false;
+			int count = 0;
+			
 			for(int row=0;row<R;row++) {
 				String str = br.readLine();
 				map[row] = str.toCharArray();
 			}
-			/*
-			for(int row=0;row<R;row++) {
-				for(int col=0;col<C;col++) {
-					System.out.print(map[row][col]);
-				}
-				System.out.println();
-			}
-			*/
-			
-			
 			for(int row=0;row<R;row++) {
 				for(int col=0;col<C;col++) {
 					if(map[row][col] == 'S') {
@@ -64,7 +54,7 @@ public class Robot_In_a_Maze_ing {
 			while(!q.isEmpty()) {
 				int size = q.size();
 				for(int i=0;i<size;i++) {
-					int[] currentRC = q.poll();
+					int[] currentRC	= q.poll();
 					int cr = currentRC[0];
 					int cc = currentRC[1];
 					for(int dir=0;dir<4;dir++) {
@@ -76,27 +66,19 @@ public class Robot_In_a_Maze_ing {
 								visit[nr][nc] = true;
 							}
 							if(map[nr][nc] == 'G') {
-							flag = true;
-							break;
-						}
-							
+								flag = true;
+								break;
+							}
 						}
 					}
 				}
-				count+=1;
+				count++;
 			}
-			if(flag) {
-			bw.write("Shortest Path: "+count+"\n");
-			//bw.write("\n");
-			}else bw.write("No Exit"+"\n");
-			//bw.flush();
 			
-//			for(int row=0;row<R;row++) {
-//				for(int col=0;col<C;col++) {
-//					System.out.print(visit[row][col]+" ");
-//				}
-//				System.out.println();
-//			}
+			if(flag) {
+				System.out.println("Shortest Path: "+count);
+			}else System.out.println("No Exit");
+
 			q.clear();
 		}
 		bw.flush();
@@ -106,6 +88,4 @@ public class Robot_In_a_Maze_ing {
 		if(nr >= 0 && nr < R && nc >= 0 && nc < C) return true;
 			return false;
 	}
-	
-
 }

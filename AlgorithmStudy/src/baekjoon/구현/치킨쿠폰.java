@@ -1,7 +1,12 @@
 package baekjoon.구현;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 /*
 [input]
 4 3
@@ -13,76 +18,33 @@ import java.util.Scanner;
 124
 */
 public class 치킨쿠폰 {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	static StringTokenizer st;
 	public static void main(String[] args) throws IOException {
-		Scanner sc = new Scanner(System.in);
-		while (sc.hasNextLong()) {
-			Long coupon = sc.nextLong();
-			Long needStamp = sc.nextLong();
-			Long chicken = (long) 0; 
-			Long stamp = (long) 0;
-			
-			while(coupon > 0) {
-				chicken += coupon;
-				stamp += coupon;
-				coupon = (long) 0;
-				coupon += stamp/needStamp;
-				stamp %= needStamp;
-				if(stamp / needStamp < 0 ) break;
+		while(true) {
+			String str = br.readLine();
+			if(str == null) break;
+			String[] arr = str.split(" ");
+			int coupon = Integer.parseInt(arr[0]);
+			int stamp = Integer.parseInt(arr[1]);
+			int cnt = 0; int nCoupon; int newCnt;
+			while(true) {
+				newCnt = (coupon - coupon%stamp);
+				nCoupon = newCnt/stamp;
+				coupon = coupon%stamp;
+				coupon += nCoupon;
+				cnt += newCnt;
+				if(coupon < stamp) {
+					cnt += coupon;
+					break;
+				}
 			}
-			
-			System.out.println(chicken);
-	//}
+			System.out.println(cnt);
+		}
+		
 	}
-}
-}
-//		while() {
-//			int coupon = sc.nextInt();
-//			int needStamp = sc.nextInt();
-//			
-//			
-//			System.out.println(coupon);
-//			System.out.println(needStamp);
-			
-			
-			
-//			chicken += coupon;
-//			stamp += coupon;
-//			coupon -= coupon;
-//			coupon += stamp/needStamp;
-//			System.out.println(coupon);
-//			if(coupon == 0 && stamp/needStamp <0) {
-//				System.out.println(chicken);
-//				break;
-//			}
-		
-
-		
-		
-		
-		
-		
-//		while(true) {
-//			int coupon = sc.nextInt();
-//			int stamp = sc.nextInt();
-//			coupon -= coupon; //ex) 쿠폰을 4만큼 빼고
-//			System.out.println("coupon = " + coupon);
-//
-//			chicken += coupon;
-//			System.out.println("chicken = " + chicken);
-//			stamp += coupon; //스탬프를 쿠폰 쓴만큼 증가 시키고
-//			System.out.println("stamp = " + stamp);
-//			coupon += stamp/stamp; //스탬프 만큼 쿠폰수를 늘리고
-//			
-//			
-//			//System.out.print("coupon = " + coupon + " stamp = " + stamp + " chicken = " + chicken+"\n");
-//			
-//			
-//			if(coupon == 0 && stamp<stamp ) {
-//				System.out.println(chicken+"----"); 
-//				break;
-//			}
-//			
-//		}
 	
+}
 
 
