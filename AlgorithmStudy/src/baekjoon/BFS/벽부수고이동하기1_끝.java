@@ -9,8 +9,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 벽부수고이동하기1_재채점수정필요 {
-	static int R, C, time = 1;
+public class 벽부수고이동하기1_끝 {
+	static int R, C, time;
 	static boolean flag;
 	static int[][] map;
 	static boolean[][][] visit;
@@ -29,11 +29,16 @@ public class 벽부수고이동하기1_재채점수정필요 {
 		q = new LinkedList<int[]>();
 		q.add(new int[] { 0, 0, 1 });
 		visit[0][0][1] = true;
+		time = 1;
 		bfs();
-		if (flag)
+		if(R-1 == 0 && C-1 == 0 ) {
+			bw.write(1+"");
+		}
+		else if (flag)
 			bw.write(time + 1 + "");
-		else
+		else  {
 			bw.write(-1 + "");
+		}
 		bw.flush();
 		bw.close();
 	}
