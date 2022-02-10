@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class 벽부수고이동하기1_끝 {
+public class 벽부수고이동하기1_복습 {
 	static int R, C, time;
 	static boolean flag;
 	static int[][] map;
