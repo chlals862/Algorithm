@@ -61,7 +61,7 @@ public class Robot_In_a_Maze_ing {
 						int nr = cr + dr[dir];
 						int nc = cc + dc[dir];
 						if(rangeCheck(nr,nc)) {
-							if(map[nr][nc] == 'O' && !visit[nr][nc]) {
+							if((map[nr][nc] == 'O' || map[nr][nc] == '0') && !visit[nr][nc]) {
 								q.add(new int[] {nr,nc});
 								visit[nr][nc] = true;
 							}
