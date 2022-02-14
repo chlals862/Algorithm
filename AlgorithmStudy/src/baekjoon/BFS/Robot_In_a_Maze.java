@@ -19,7 +19,7 @@ XOXOXXOX
 XOOOXOOX
 XXXXXGXX
 */
-public class Robot_In_a_Maze_ing {
+public class Robot_In_a_Maze {
 	static int[] dr = { -1, 0, 1, 0 };
 	static int[] dc = { 0, 1, 0, -1 };
 	static int T,R,C;
@@ -73,11 +73,12 @@ public class Robot_In_a_Maze_ing {
 					}
 				}
 				count++;
+				if(flag) break;
 			}
 			
 			if(flag) {
-				System.out.println("Shortest Path: "+count);
-			}else System.out.println("No Exit");
+				bw.write("Shortest Path: "+count+"\n");
+			}else bw.write("No Exit"+"\n");
 
 			q.clear();
 		}
