@@ -35,7 +35,7 @@ public class 경쟁적_전염 {
 		@Override
 		public int compareTo(rank o) {
 			if(this.num < o.num) {
-			return -1; //return -integer.compare과 차이점을 모르겠다.. 결과는 같게 나오는데
+			return -1; //return -integer.compare과 차이점을 모르겠다.. 결은 같게 나오는데
 		}
 			return 1; // return integer.compare
 	}
