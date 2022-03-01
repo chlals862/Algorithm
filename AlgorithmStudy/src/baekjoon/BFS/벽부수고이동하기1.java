@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class 벽부수고이동하기 {
+public class 벽부수고이동하기1 {
 	static int R, C;
 	static int time;
 	static boolean flag;
