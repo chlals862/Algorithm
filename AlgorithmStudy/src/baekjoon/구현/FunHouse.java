@@ -12,7 +12,6 @@ import java.util.StringTokenizer;
 public class FunHouse {
 	static int R, C;
 	static char[][] map;
-	static int[][] visit;
 	static int[] dr = { -1, 0, 1, 0 };
 	static int[] dc = { 0, 1, 0, -1 };
 	static Queue<int[]> q = new LinkedList<int[]>();
@@ -28,7 +27,6 @@ public class FunHouse {
 			R = Integer.parseInt(st.nextToken());
 			if (R == 0 && C == 0) break;
 			map = new char[R][C];
-			visit = new int[R][C];
 			
 			for (int row = 0; row < R; row++) map[row] = br.readLine().toCharArray();
 			st = new StringTokenizer(br.readLine());
