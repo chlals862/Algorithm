@@ -18,7 +18,6 @@ public class FunHouse {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
-
 	public static void main(String[] args) throws IOException {
 		st = new StringTokenizer(br.readLine());
 		int cnt = 0;
@@ -84,14 +83,17 @@ public class FunHouse {
 				case 2 :
 					//좌측으로
 					if(map[nr][nc] == '/') q.add(new int[] {nr,nc,3});
+					//우측으로
 					else if(map[nr][nc] == '\\') q.add(new int[] {nr,nc,1});
 					break;
 				//좌측으로 가면서
 				case 3 : 
+					//아래로
 					if(map[nr][nc] == '/') q.add(new int[] {nr,nc,2});
+					//위로
 					else if(map[nr][nc] == '\\') q.add(new int[] {nr,nc,0});
 					break;
-				}//switch
+				}
 					if(map[nr][nc] == 'x') {
 						map[nr][nc] = '&';
 						break;
