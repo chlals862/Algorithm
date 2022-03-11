@@ -53,10 +53,11 @@ public class 레이저빔은어디로 {
 				mirrorC = Integer.parseInt(st.nextToken());
 				map[mirrorR][mirrorC] = -1;
 			}
+			
 			st = new StringTokenizer(br.readLine());
 			lagerR = Integer.parseInt(st.nextToken());
 			lagerC = Integer.parseInt(st.nextToken());
-			//map[lagerR][lagerC] = -2;
+			
 			for(int row=0;row<map.length;row++) {
 				for(int col=0;col<map.length;col++) {
 					map[0][col] = -3;
@@ -65,6 +66,7 @@ public class 레이저빔은어디로 {
 					map[row][map.length-1] = -3;
 				}
 			}
+			
 			if(lagerR == 0) q.add(new int[] {lagerR,lagerC,2}); //아래로
 			else if(lagerR == map.length-1) q.add(new int[] {lagerR,lagerC,0}); //위로
 			else if(lagerC == 0) q.add(new int[] {lagerR,lagerC,1}); //우측으로
@@ -72,15 +74,13 @@ public class 레이저빔은어디로 {
 			move();
 			
 			bw.write(resR + " " + resC +"\n");
-			
 
-		} //while
+		} 
 		bw.flush();
 	}
 	private static void move() {
 		while(!q.isEmpty()) {
-			int size = q.size();
-			for(int i=0;i<size;i++) {
+
 			int[] current = q.poll();
 			int dir = current[2];
 			int nr = current[0] + dr[dir];
@@ -113,7 +113,7 @@ public class 레이저빔은어디로 {
 				resC = nc;
 				break;
 			}
-		}
+		
 	}
 }
 	private static boolean isRange(int nr, int nc) {
