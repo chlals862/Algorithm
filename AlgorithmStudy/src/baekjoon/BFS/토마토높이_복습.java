@@ -119,16 +119,4 @@ public class 토마토높이_복습 {
 		visit[row][col][height] = true;
 		box[row][col][height] = 1;
 	}
-
-	private static void view() {
-		for (int h = 0; h < H; h++) {
-			for (int row = 0; row < R; row++) {
-				for (int col = 0; col < C; col++) {
-					System.out.print(box[row][col][h] + " ");
-				}
-				System.out.println();
-			}
-			System.out.println();
-		}
-	}
 }

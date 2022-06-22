@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
@@ -76,5 +75,4 @@ public class Road_Reconstruction {
 	private static boolean isRange(int nr, int nc) {
 		return nr >= 0 && nr < R && nc >= 0 && nc < C;
 	}
-
 }
