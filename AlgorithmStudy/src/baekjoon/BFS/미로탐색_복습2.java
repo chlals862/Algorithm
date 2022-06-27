@@ -21,23 +21,27 @@ public class 미로탐색_복습2 {
 		st = new StringTokenizer(br.readLine());
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
+		
 		map = new int[R][C];
 		visit = new boolean[R][C];
+		
 		for(int row=0;row<R;row++) {
 			String str = br.readLine();
 			for(int col=0;col<C;col++) {
 				map[row][col] = str.charAt(col)-'0';
 			}
 		}
+		
 		q = new LinkedList<int[]>();
 		q.add(new int[] {0,0});
 		visit[0][0] = true;
 		ans = 1;
 		bfs();
-		bw.write(ans+1+"");
+		
+		/*bw.write(ans+1+"");
 		br.close();
 		bw.flush();
-		bw.close();
+		bw.close();*/
 	}
 	private static void bfs() {
 		int[] dr = {-1,0,1,0};
@@ -62,6 +66,13 @@ public class 미로탐색_복습2 {
 				}
 			}
 			ans++;
+			System.out.println();
+			for(int row=0;row<R;row++) {
+				for(int col=0;col<C;col++) {
+					System.out.print(visit[row][col] + " ");
+				}
+				System.out.println();
+			}
 		}
 		
 	}
