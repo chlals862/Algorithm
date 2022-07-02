@@ -17,7 +17,6 @@ public class _1515 {
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	public static void main(String[] args) throws IOException {
-		
 		map = new int[25][25];
 		temp = new int[25][25];
 		for(int row=0;row<25;row++) {
@@ -27,67 +26,35 @@ public class _1515 {
 				temp[row][col] = map[row][col];
 			}
 		}
-		
-		alive1();
 		alive2();
-		
-		//cons();
+		cons();
 		output();
-		
-		
 	}
 	private static void output() throws IOException {
 		for(int row=0;row<25;row++) {
 			for(int col=0;col<25;col++) {
-				bw.write(temp[row][col] + " ");
+				bw.write(map[row][col] + " ");
 			}
 			bw.write("\n");
 		}
-		bw.write("");
+		bw.write(" ");
 		bw.flush();
 		bw.close();
 		br.close();
 	}
+	
 	private static void cons() {
 		for(int row=0;row<25;row++) {
 			for(int col=0;col<25;col++) {
-				if(temp[row][col] == 2) {
+				if(temp[row][col] == 2 || temp[row][col] == 4) {
 					map[row][col] = 1;
 				}else if(temp[row][col] == 3) {
 					map[row][col] = 0;
-				}else if(temp[row][col] == 4) {
-					map[row][col] = 1;
 				}
 			}
 		}
-		
 	}
-	private static void alive1() {
-		visit = new boolean[25][25];
-		
-		for(int row=0;row<25;row++) {
-			for(int col=0;col<25;col++) {
-				if(map[row][col] == 0 && !visit[row][col]) {
-					visit[row][col] = true;
-					int count = 0;
-					
-					for(int dir=0;dir<8;dir++) {
-						int nr = row+dr[dir];
-						int nc = col+dc[dir];
-						
-						if(rangeCheck(nr,nc)) {
-							if(map[nr][nc] == 1) {
-								count++;
-								if(count == 3) {
-									temp[row][col] = 2;
-								}else temp[row][col] = 0;
-							}
-						}
-					}
-				}
-			}
-	}
-}
+	
 	private static void alive2() {
 		visit = new boolean[25][25];
 		for(int row=0;row<25;row++) {
@@ -111,10 +78,28 @@ public class _1515 {
 							}
 						}
 					}
+				}else if(map[row][col] == 0 && !visit[row][col]) {
+					visit[row][col] = true;
+					int count = 0;
+					
+					for(int dir=0;dir<8;dir++) {
+						int nr = row+dr[dir];
+						int nc = col+dc[dir];
+						
+						if(rangeCheck(nr,nc)) {
+							if(map[nr][nc] == 1) {
+								count++;
+								if(count == 3) {
+									temp[row][col] = 2;
+								}else temp[row][col] = 0;
+							}
+						}
+					}
 				}
 			}
 		}
 	}
+	
 	private static boolean rangeCheck(int nr, int nc) {
 		return nr >= 0 && nr < 25 && nc >= 0 && nc < 25;
 	}
