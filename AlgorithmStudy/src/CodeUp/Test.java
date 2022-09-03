@@ -42,7 +42,8 @@ public class Test {
 				
 				for(int k = -1 ; k < 2 ; k++) { // y
 					for(int z = - 1 ; z < 2 ; z++) { // x
-						if(i + k > -1 && i + k < 25 && j + z > -1 && j + z < 25 && now[i + k][j + z] == 1) {
+						if(i + k > -1 && i + k < 25 && j + z > -1 
+								&& j + z < 25 && now[i + k][j + z] == 1) {
 							if(k != 0 || z != 0) {
 								cnt++;
 							}
