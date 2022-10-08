@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-import org.omg.CORBA.Current;
 
 /* D = A의 제곱
  * S = n-1   -> if n이 0일때 -> 9999가 저장

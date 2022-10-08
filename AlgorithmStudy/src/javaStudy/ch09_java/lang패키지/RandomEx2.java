@@ -3,7 +3,6 @@ package javaStudy.ch09_java.lang패키지;
 import java.awt.PrintGraphics;
 import java.util.Random;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
 
 public class RandomEx2 {
 
