@@ -20,7 +20,7 @@ class Point implements Comparable<Point>{
 		return cnt - o.cnt;
 	}
 }
-
+ 
 public class 알고스팟 {
 	static int R,C,res;
 	static int[][] map;
