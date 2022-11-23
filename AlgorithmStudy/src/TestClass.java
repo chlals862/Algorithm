@@ -3,37 +3,36 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class TestClass {
 
-   public static void main(String[] args) throws IOException {
-      
-      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-      BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-      StringBuilder sbsb = new StringBuilder();
-      
-      int sum = GetRev(br.readLine());
-      bw.write(Integer.parseInt(sbsb.append(sum).reverse().toString())+"\n");
-      bw.flush();
-   }
-   
-   public static int GetRev(String str) {
-      StringTokenizer st = new StringTokenizer(str);
-      
-      StringBuilder sbx = new StringBuilder();
-      StringBuilder sby = new StringBuilder();
-      
-      int x = Integer.parseInt(st.nextToken());
-      int y = Integer.parseInt(st.nextToken());
-      
-      sbx.append(x).reverse();
-      sby.append(y).reverse();
-      
-      int sum = 0; 
-      
-      sum = Integer.parseInt(sbx.toString()) + Integer.parseInt(sby.toString());
-  
-      return sum;
-   }
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		while(T --> 0) {
+			st = new StringTokenizer(br.readLine());
+			int target = Integer.parseInt(st.nextToken());
+			String str = st.nextToken();
+			ArrayList<Character> list = new ArrayList<Character>();
+
+			for(int row=0;row<str.length();row++) {
+				list.add((char) str.codePointAt(row));
+			}
+			list.remove(target-1);
+			
+			for(Character result : list) {
+				bw.write(result+"");
+			}
+			bw.write("\n");
+		}
+		br.close();
+		bw.flush();
+		bw.close();
+	}
 }

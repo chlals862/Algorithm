@@ -8,8 +8,15 @@ public class 팩토리얼 {
 		System.out.println("재귀적으로 구현 :" + factorialRecursive(4));
 	}
 	//재귀적
+	
+	//4 
+	//4 * 3 -> 12
+	//3
+	//3 * 2 -> 6
+	//2 * 1 -> 2
 	private static int factorialRecursive(int n) {
 		//n이 1이하인 경우 1을 반환
+		//System.out.println(n);
 		if(n<= 1)return 1;
 		// n! = n*(n-1) 작성
 		return n*factorialRecursive(n-1);
